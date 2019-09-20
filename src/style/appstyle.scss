@@ -1,0 +1,53 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+#app {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+
+    .main {
+        flex: 1;
+        overflow: auto;
+        width: 100%;
+        background: #ccc;
+
+        // div {
+        //     height: 300px;
+        //     background: #58bc58;
+        // }
+    }
+
+    .footer {
+        height: 49px;
+        width: 100%;
+        overflow: hidden;
+
+        .ant-menu {
+            display: flex;
+
+            .ant-menu-item {
+                flex: 1;
+
+                i {
+                    display: block;
+                    width: 40px;
+                    height: 40px;
+                    margin: auto;
+                    // background: #58bc58;
+                    background-image: url(../images/home2017v5.png);
+                    background-repeat: no-repeat;
+                    background-size: 400px 184px;
+                    // background-position: 0 -144px;
+                }
+
+            }
+
+            .ant-menu-item-selected {
+                background: none
+            }
+        }
+    }
+}
