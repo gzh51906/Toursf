@@ -1,13 +1,11 @@
 import axios from "axios"
 
-const nanshigou = axios.create({
-    baseURL: ""
+const toursf = axios.create({
+    baseURL: "http://localhost:8888"
 })
 
-let get = async (params) => {
-    let { data } = await nanshigou.get("", {
-        params
-    })
+let get = async (item, params) => {
+    let { data } = await toursf.get(item, { params })
     return data
 }
 let post = () => { }
