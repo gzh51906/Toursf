@@ -4,7 +4,8 @@ class Dest extends Component {
     render() {
         return (
             <div className="pp">
-                目的地
+                <div className="header"></div>
+                <div></div>
             </div>
         )
     }
