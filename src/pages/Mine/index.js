@@ -9,7 +9,7 @@ import './Mine.css'
 
 
 
-class Login extends Component {
+class Mine extends Component {
     state = {
 
         naem: [
@@ -67,12 +67,14 @@ class Login extends Component {
     };
 
 
-
+    goto = () => {
+        this.props.history.push('/login')
+    }
 
     render() {
         return (
             <div className='boxs'>
-                <div className='portrait'>
+                <div className='portrait' onClick={this.goto}>
                     <img src="https://avatars2.githubusercontent.com/u/52444450?s=460&v=4" alt="" className='imgs' />
                     <div className='name'>登录/注册</div>
                 </div>
@@ -113,4 +115,4 @@ class Login extends Component {
 
 }
 
-export default Login;
+export default Mine;

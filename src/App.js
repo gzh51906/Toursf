@@ -17,6 +17,9 @@ import Dest from "./pages/Dest"
 import Discover from "./pages/Discover"
 import Order from "./pages/Order"
 import Mine from "./pages/Mine"
+import Login from './pages/Login'
+import Reg from './pages/Reg'
+
 
 class App extends Component {
     state = {
@@ -26,12 +29,12 @@ class App extends Component {
             { path: "/dest", text: "目的地", name: "dest", bgpositon: { backgroundPositionX: -120, backgroundPositionY: -144 }, bgactive: { backgroundPositionX: -80, backgroundPositionY: -144 } },
             { path: "/discover", text: "发现", name: "discover", bgpositon: { backgroundPositionX: -200, backgroundPositionY: -144 }, bgactive: { backgroundPositionX: -160, backgroundPositionY: -144 } },
             { path: "/order", text: "订单", name: "order", bgpositon: { backgroundPositionX: -280, backgroundPositionY: -144 }, bgactive: { backgroundPositionX: -240, backgroundPositionY: -144 } },
-            { path: "/mine", text: "我的", name: "mine", bgpositon: { backgroundPositionX: -360, backgroundPositionY: -144 }, bgactive: { backgroundPositionX: -320, backgroundPositionY: -144 } }
+            { path: "/mine", text: "我的", name: "mine", bgpositon: { backgroundPositionX: -360, backgroundPositionY: -144 }, bgactive: { backgroundPositionX: -320, backgroundPositionY: -144 } },
         ]
     }
-    goto = (key) => {
+    goto = (path) => {
         // console.log(this.props)
-        this.props.history.push(key)
+        this.props.history.push(path)
         // this.setState({current: key})
     }
     changeMenu = ({ key }) => {
@@ -51,6 +54,10 @@ class App extends Component {
                         <Route path="/discover" component={Discover} />
                         <Route path="/order" component={Order} />
                         <Route path="/mine" component={Mine} />
+                        {/* 登录/注册 */}
+                        <Route path="/login" component={Login} />
+                        <Route path="/reg" component={Reg} />
+
                         <Route path="/notfound" render={() => <div>404</div>} />
                         {/* 精确匹配 */}
                         <Redirect path="/" to="/home" exact />
