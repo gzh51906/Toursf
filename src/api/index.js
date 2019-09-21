@@ -5,12 +5,16 @@ const toursf = axios.create({
 })
 
 let get = async (item, params) => {
-    let { data } = await toursf.get(item, { params })
+    let {
+        data
+    } = await toursf.get(item, {
+        params
+    })
     return data
 }
-let post = () => { }
-let patch = () => { }
-let remove = () => { }
+let post = () => {}
+let patch = () => {}
+let remove = () => {}
 
 export default {
     get,

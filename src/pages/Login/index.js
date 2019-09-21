@@ -6,7 +6,7 @@ import React, {
 import { Icon, Button } from 'antd';
 import './login.css'
 
-
+import axios from "axios"
 
 class Login extends Component {
 
@@ -60,7 +60,17 @@ class Login extends Component {
             });
         }
     }
-    // --------------
+    // 登录请求
+    componentDidMount() {
+        // 在这里请求相关接口判断用户是否完成登录
+        axios.get('http://139.9.138.168:8888/user')
+            .then((item) => {
+                console.log(item);
+
+            })
+    }
+
+    // ---------
 
     goto = () => {
         this.props.history.push('/reg')

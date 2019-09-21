@@ -19,6 +19,7 @@ import Order from "./pages/Order"
 import Mine from "./pages/Mine"
 import Login from './pages/Login'
 import Reg from './pages/Reg'
+import Cart from './pages/Cart'
 
 
 class App extends Component {
@@ -54,9 +55,14 @@ class App extends Component {
                         <Route path="/discover" component={Discover} />
                         <Route path="/order" component={Order} />
                         <Route path="/mine" component={Mine} />
+                        <Route path="/cart" component={Cart} />
+
+
                         {/* 登录/注册 */}
                         <Route path="/login" component={Login} />
                         <Route path="/reg" component={Reg} />
+                        {/* 购物车 */}
+
 
                         <Route path="/notfound" render={() => <div>404</div>} />
                         {/* 精确匹配 */}
