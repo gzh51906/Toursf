@@ -1,7 +1,7 @@
 import React, { Component } from "react"
 import Api from "../../api"
 import { Row, Col,Carousel,Icon} from 'antd';
-import './home.scss';
+// import './home.scss';
 
 class Home extends Component {
     state = {

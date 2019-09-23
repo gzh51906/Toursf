@@ -4,6 +4,7 @@ import React, {
 import { Icon, Button } from 'antd';
 import './reg.css'
 
+import axios from "axios"
 
 class Reg extends Component {
 
@@ -14,8 +15,8 @@ class Reg extends Component {
         // 生成随机数
         // this.handleR = this.handleR.bind(this);
         this.state = {
-            userName: "",
-            userPassword: "",
+            username: "",
+            Password: "",
             isRemember: false,
             unameHelp: "",
             upwdHelp: "",
@@ -28,7 +29,7 @@ class Reg extends Component {
     changeUsername(e) {
         let uname = e.target.value;
         this.setState({
-            userName: uname
+            username: uname
         });
         // console.log(this.state.userName);
     }
@@ -36,20 +37,20 @@ class Reg extends Component {
     changePassword(e) {
         let upwd = e.target.value;
         this.setState({
-            userPassword: upwd
+            Password: upwd
         })
     }
     // 表单验证和正则
     handleClick() {
-        if (this.state.userName === "" || this.state.userName === null) {
+        if (this.state.username === "" || this.state.username === null) {
             this.setState({
                 unameHelp: "* 用户名不能为空"
             })
-        } else if (!(/^1[3|4|5|7|8][0-9]{9}$/.test(this.state.userName))) {
+        } else if (!(/^1[3|4|5|7|8][0-9]{9}$/.test(this.state.username))) {
             this.setState({
                 unameHelp: "* 手机格式不正确"
             })
-        } else if (this.state.userPassword === "" || this.state.userPassword === null) {
+        } else if (this.state.Password === "" || this.state.Password === null) {
             this.setState({
                 unameHelp: "",
                 upwdHelp: "* 密码不能为空"
@@ -60,7 +61,14 @@ class Reg extends Component {
                 upwdHelp: ""
             });
         }
+        let data = axios.post('http://139.9.138.168:8888/user/reg', {
+            username: this.state.username,
+            Password: this.state.Password
+        })
+        console.log(data);
+
     }
+
 
     // 生成随机数
     handleR() {
@@ -120,7 +128,7 @@ class Reg extends Component {
                         </div>
                     </div>
                     <div className='button'>
-                        <Button type="primary" onClick={this.handleClick.bind(this, this.state.userName, this.state.userPassword)}>
+                        <Button type="primary" onClick={this.handleClick.bind(this, this.state.username, this.state.Password)}>
                             注册
                     </Button>
                     </div>

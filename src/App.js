@@ -13,7 +13,7 @@ import "./style/appstyle.scss"
 
 /* 组件 */
 import Home from "./pages/Home"
-import Dest from "./pages/Dest"
+// import Dest from "./pages/Dest"
 import Discover from "./pages/Discover"
 import Order from "./pages/Order"
 import Mine from "./pages/Mine"
@@ -51,7 +51,7 @@ class App extends Component {
                 <main className="main">
                     <Switch>
                         <Route path="/home" component={Home} />
-                        <Route path="/dest" component={Dest} />
+                        {/* <Route path="/dest" component={Dest} /> */}
                         <Route path="/discover" component={Discover} />
                         <Route path="/order" component={Order} />
                         <Route path="/mine" component={Mine} />
