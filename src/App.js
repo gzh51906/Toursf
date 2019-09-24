@@ -10,6 +10,7 @@ import { connect } from "react-redux"
 
 /* 全局样式 */
 import "./style/appstyle.scss"
+import "./style/base.css"
 
 /* 组件 */
 import Home from "./pages/Home"
@@ -17,6 +18,8 @@ import Dest from "./pages/Dest"
 import Discover from "./pages/Discover"
 import Order from "./pages/Order"
 import Mine from "./pages/Mine"
+import Search from "./pages/Search"
+import List from "./pages/List"
 
 class App extends Component {
     state = {
@@ -30,9 +33,7 @@ class App extends Component {
         ]
     }
     goto = (key) => {
-        // console.log(this.props)
         this.props.history.push(key)
-        // this.setState({current: key})
     }
     changeMenu = ({ key }) => {
         this.setState({
@@ -40,8 +41,10 @@ class App extends Component {
         })
         this.goto(key)
     }
+    componentDidMount() {
+        // console.log(this.props)
+    }
     render() {
-        // console.log(this.state.current)
         return (
             <>
                 <main className="main">
@@ -51,38 +54,41 @@ class App extends Component {
                         <Route path="/discover" component={Discover} />
                         <Route path="/order" component={Order} />
                         <Route path="/mine" component={Mine} />
+                        <Route path="/search" component={Search} />
+                        <Route path="/list" component={List} />
                         <Route path="/notfound" render={() => <div>404</div>} />
                         {/* 精确匹配 */}
                         <Redirect path="/" to="/home" exact />
                         <Redirect path="*" to="/notfound" />
                     </Switch>
-                    {/* <div>1</div>
-                    <div>2</div>
-                    <div>3</div>
-                    <div>4</div> */}
                 </main>
-                <div className="footer">
-                    <Menu>
-                        {this.state.menu.map(item => {
-                            return <Menu.Item key={item.name} onClick={this.changeMenu}>
-                                {/* <i style={{ backgroundImage: "url(./images/home2017v5.png)" }}></i> */}
-                                <i style={item.path === this.state.current ? item.bgactive : item.bgpositon}></i>
-                            </Menu.Item>
-                        })}
-                    </Menu>
-                </div>
+                {
+                    this.props.showMenu
+                        ?
+                        <div className="footer">
+                            <Menu>
+                                {this.state.menu.map(item => {
+                                    return <Menu.Item key={item.name} onClick={this.changeMenu}>
+                                        <i style={item.path === this.state.current ? item.bgactive : item.bgpositon}></i>
+                                    </Menu.Item>
+                                })}
+                            </Menu>
+                        </div>
+                        :
+                        <></>
+                }
             </>
         )
     }
 }
 App = withRouter(App)
 
-// let mapStateToPrpps = (state) => {
-//     return {
-//         cartlength: state.cart.goodslist.length
-//     }
-// }
+let mapStateToPrpps = (state) => {
+    return {
+        showMenu: state.common.showMenu
+    }
+}
 
-// App = connect(mapStateToPrpps)(App)
+App = connect(mapStateToPrpps)(App)
 
 export default App
