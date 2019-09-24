@@ -5,9 +5,13 @@ const toursf = axios.create({
 })
 
 let get = async (item, params) => {
+<<<<<<< HEAD
     let {
         data
     } = await toursf.get(item, {
+=======
+    let { data } = await toursf.get(item, {
+>>>>>>> cxd
         params
     })
     return data
