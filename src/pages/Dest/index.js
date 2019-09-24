@@ -1,14 +1,14 @@
 import React, { Component } from "react"
 import { connect } from "react-redux"
 
-class Discover extends Component {
+class Dest extends Component {
     render() {
         /* 显示菜单栏 */
         let { dispatch } = this.props
         dispatch({ type: "show_menu" })
         return (
-            <div>
-                发现
+            <div className="pp">
+                目的地
             </div>
         )
     }
@@ -20,6 +20,6 @@ let mapStateToProps = (state) => {
     }
 }
 
-Discover = connect(mapStateToProps)(Discover)
+Dest = connect(mapStateToProps)(Dest)
 
-export default Discover
+export default Dest

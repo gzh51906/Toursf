@@ -1,7 +1,6 @@
-import React, {
-    Component
-} from 'react'
+import React, { Component } from 'react'
 import { Icon } from 'antd';
+import { connect } from "react-redux"
 
 import './Mine.css'
 
@@ -81,6 +80,9 @@ class Mine extends Component {
         this.props.history.push('/login')
     }
     render() {
+        /* 显示菜单栏 */
+        let { dispatch } = this.props
+        dispatch({ type: "show_menu" })
         return (
             <div className='boxs'>
                 <div className='portrait' onClick={this.login}>
@@ -127,4 +129,17 @@ class Mine extends Component {
 
 }
 
+<<<<<<< HEAD
 export default Mine;
+=======
+let mapStateToProps = (state) => {
+    return {
+        showMenu: state.common.showMenu
+    }
+}
+
+Login = connect(mapStateToProps)(Login)
+
+
+export default Login;
+>>>>>>> cxd
