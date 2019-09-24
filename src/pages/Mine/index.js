@@ -129,17 +129,13 @@ class Mine extends Component {
 
 }
 
-<<<<<<< HEAD
-export default Mine;
-=======
 let mapStateToProps = (state) => {
     return {
         showMenu: state.common.showMenu
     }
 }
 
-Login = connect(mapStateToProps)(Login)
+Mine = connect(mapStateToProps)(Mine)
 
 
-export default Login;
->>>>>>> cxd
+export default Mine;

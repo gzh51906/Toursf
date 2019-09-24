@@ -1,7 +1,8 @@
 let initState = {
     userInfo: {},
     token: "",
-    showMenu: true
+    showMenu: true,
+    goodsid: ""
 }
 
 function reducer(state = initState, action) {
@@ -28,6 +29,11 @@ function reducer(state = initState, action) {
             return {
                 ...state,
                 showMenu: false
+            }
+        case "goods_id":
+            return {
+                ...state,
+                goodsid: action.id
             }
         default:
             return state

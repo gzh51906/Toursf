@@ -5,15 +5,36 @@ import "./list.scss"
 import { Icon } from "antd"
 
 class List extends Component {
+    constructor(props) {
+        super(props);
+        this._onScrollEvent = this._onScrollEvent.bind(this);
+    }
+
     state = {
         goods: []
     }
     async componentDidMount() {
+        // console.log(this.props)
         let { data } = await Api.get("/goods", { page: 0 })
+        // console.log(data)
         this.setState({
             goods: data
         })
 
+
+    }
+
+    _onScrollEvent(d) {
+        console.log(d._container.scrollTop)
+        // if (this._container.scrollTop + this._container.clientHeight === this._container.scrollHeight) {
+        //     ///todo: do something
+        // }
+    }
+
+    goto(id) {
+        this.props.history.push(`/goods/${id}`)
+        // let { dispatch } = this.props
+        // dispatch({ type: "goods_id", id })
     }
 
     render() {
@@ -23,6 +44,10 @@ class List extends Component {
         let { goods } = this.state
         return (
             <div id="list">
+
+                <div className="top">
+                    <img src="../../images/back_top.png" />
+                </div>
                 <header className="header">
                     <div className="search">
                         <Icon type="left" className="goback" />
@@ -38,10 +63,10 @@ class List extends Component {
                         <span className="nav-list">筛选</span>
                     </div>
                 </header>
-                <div className="content">
+                <div className="content" ref={c => this._container = c} eonScrollCaptur={() => this._onScrollEvent(this)}>
                     {
                         goods.map(item => {
-                            return <div className="goods" key={item.id}>
+                            return <div className="goods" key={item.id} onClick={this.goto.bind(this, item.id)}>
                                 <div className="item-img">
                                     <img src={item.image} />
                                     <div className="img-tip-mask"></div>
@@ -68,7 +93,7 @@ class List extends Component {
                         })
                     }
                 </div>
-            </div>
+            </div >
         )
     }
 }
@@ -76,7 +101,8 @@ class List extends Component {
 
 let mapStateToProps = (state) => {
     return {
-        showMenu: state.common.showMenu
+        showMenu: state.common.showMenu,
+        // goodsid: state.common.goodsid
     }
 }
 

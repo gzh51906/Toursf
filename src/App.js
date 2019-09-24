@@ -14,19 +14,17 @@ import "./style/base.css"
 
 /* 组件 */
 import Home from "./pages/Home"
-// import Dest from "./pages/Dest"
+import Dest from "./pages/Dest"
 import Discover from "./pages/Discover"
 import Order from "./pages/Order"
 import Mine from "./pages/Mine"
-<<<<<<< HEAD
 import Login from './pages/Login'
 import Reg from './pages/Reg'
 import Cart from './pages/Cart'
+import Goods from "./pages/Goods"
 
-=======
 import Search from "./pages/Search"
 import List from "./pages/List"
->>>>>>> cxd
 
 class App extends Component {
     state = {
@@ -39,15 +37,8 @@ class App extends Component {
             { path: "/mine", text: "我的", name: "mine", bgpositon: { backgroundPositionX: -360, backgroundPositionY: -144 }, bgactive: { backgroundPositionX: -320, backgroundPositionY: -144 } },
         ]
     }
-<<<<<<< HEAD
-    goto = (path) => {
-        // console.log(this.props)
-        this.props.history.push(path)
-        // this.setState({current: key})
-=======
     goto = (key) => {
         this.props.history.push(key)
->>>>>>> cxd
     }
     changeMenu = ({ key }) => {
         this.setState({
@@ -64,12 +55,14 @@ class App extends Component {
                 <main className="main">
                     <Switch>
                         <Route path="/home" component={Home} />
-                        {/* <Route path="/dest" component={Dest} /> */}
+                        <Route path="/dest" component={Dest} />
                         <Route path="/discover" component={Discover} />
                         <Route path="/order" component={Order} />
                         <Route path="/mine" component={Mine} />
-<<<<<<< HEAD
                         <Route path="/cart" component={Cart} />
+
+                        {/* 动态路由 */}
+                        <Route path="/goods/:id" component={Goods} />
 
 
                         {/* 登录/注册 */}
@@ -78,10 +71,8 @@ class App extends Component {
                         {/* 购物车 */}
 
 
-=======
                         <Route path="/search" component={Search} />
                         <Route path="/list" component={List} />
->>>>>>> cxd
                         <Route path="/notfound" render={() => <div>404</div>} />
                         {/* 精确匹配 */}
                         <Redirect path="/" to="/home" exact />
