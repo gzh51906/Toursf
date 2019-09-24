@@ -14,8 +14,8 @@ class Login extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            userName: "",
-            userPassword: "",
+            phone: "",
+            password: "",
             isRemember: false,
             unameHelp: "",
             upwdHelp: ""
@@ -25,9 +25,9 @@ class Login extends Component {
 
     //监听input中的数据，保存到state中
     changeUsername(e) {
-        let uname = e.target.value;
+        let phone = e.target.value;
         this.setState({
-            userName: uname
+            phone
         });
         // console.log(this.state.userName);
     }
@@ -35,20 +35,20 @@ class Login extends Component {
     changePassword(e) {
         let upwd = e.target.value;
         this.setState({
-            userPassword: upwd
+            password: upwd
         })
     }
     // 表单验证和正则
     handleClick() {
-        if (this.state.userName === "" || this.state.userName === null) {
+        if (this.state.phone === "" || this.state.phone === null) {
             this.setState({
                 unameHelp: "* 用户名不能为空"
             })
-        } else if (!(/^1[3|4|5|7|8][0-9]{9}$/.test(this.state.userName))) {
+        } else if (!(/^1[3|4|5|7|8][0-9]{9}$/.test(this.state.phone))) {
             this.setState({
                 unameHelp: "* 手机格式不正确"
             })
-        } else if (this.state.userPassword === "" || this.state.userPassword === null) {
+        } else if (this.state.password === "" || this.state.password === null) {
             this.setState({
                 unameHelp: "",
                 upwdHelp: "* 密码不能为空"
@@ -60,21 +60,21 @@ class Login extends Component {
             });
         }
 
-        axios.post('http://139.9.138.168:8888/user/login')
+        // axios.post('http://139.9.138.168:8888/user/login')
+        //     .then((item) => {
+        //         console.log(item);
+
+        //     })
+    }
+    // 登录请求
+    componentDidMount() {
+        // 在这里请求相关接口判断用户是否完成登录
+        axios.get('http://139.9.138.168:8888/user')
             .then((item) => {
                 console.log(item);
 
             })
     }
-    // 登录请求
-    // componentDidMount() {
-    //     // 在这里请求相关接口判断用户是否完成登录
-    //     axios.post('http://139.9.138.168:8888/user/login')
-    //         .then((item) => {
-    //             console.log(item);
-
-    //         })
-    // }
 
     // ---------
 

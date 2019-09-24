@@ -24,7 +24,6 @@ class Reg extends Component {
         }
     }
 
-
     //监听input中的数据，保存到state中
     changeUsername(e) {
         let uname = e.target.value;
@@ -42,6 +41,8 @@ class Reg extends Component {
     }
     // 表单验证和正则
     handleClick() {
+
+    
         if (this.state.username === "" || this.state.username === null) {
             this.setState({
                 unameHelp: "* 用户名不能为空"
@@ -68,6 +69,10 @@ class Reg extends Component {
         console.log(data);
 
     }
+
+
+
+
 
 
     // 生成随机数
