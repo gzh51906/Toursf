@@ -60,34 +60,36 @@ class Login extends Component {
             });
         }
 
-        if (this.state.phone && (/^1[3|4|5|7|8][0-9]{9}$/.test(this.state.phone)) && this.state.password) {
-            let {
-                data
-            } = await axios.get('http://139.9.138.168:8888/user/check', {
-                params: {
-                    phone: this.state.phone,
-                    password: this.state.password
-                }
-            })
-            console.log(data);
-            if (data.code === 0) {
-                this.props.history.push('/reg')
-            } else {
-                let {
-                    data
-                } = await axios.post('http://139.9.138.168:8888/user/login', {
-                    phone: this.state.phone,
-                    password: this.state.password
-                })
-                if (data.code === 1) {
-                    alert("登录成功!");
+        // if (this.state.phone && (/^1[3|4|5|7|8][0-9]{9}$/.test(this.state.phone)) && this.state.password) {
+        // let {
+        //     data
+        // } = await axios.get('http://139.9.138.168:8888/user/check', {
+        //     params: {
+        //         phone: this.state.phone,
+        //         password: this.state.password
+        //     }
+        // })
+        // console.log(data);
+        // if (data.code === 0) {
+        //     this.props.history.push('/reg')
+        // } else {
+        let {
+            data
+        } = await axios.post('http://139.9.138.168:8888/user/login', {
+            phone: this.state.phone,
+            password: this.state.password
+        })
+        if (data.code === 1) {
+            alert("登录成功!");
 
-                    // replace登录成功不能回退
-                    this.props.history.replace('/mine')
-                }
-
-            }
+            // replace登录成功不能回退
+            this.props.history.replace('/mine')
+        } else {
+            this.props.history.push('/reg')
         }
+        console.log(data)
+        // }
+        // }
 
 
     }
