@@ -14,13 +14,14 @@ import "./style/base.css"
 
 /* 组件 */
 import Home from "./pages/Home"
-// import Dest from "./pages/Dest"
+import Dest from "./pages/Dest"
 import Discover from "./pages/Discover"
 import Order from "./pages/Order"
 import Mine from "./pages/Mine"
 import Login from './pages/Login'
 import Reg from './pages/Reg'
 import Cart from './pages/Cart'
+import Goods from "./pages/Goods"
 
 import Search from "./pages/Search"
 import List from "./pages/List"
@@ -59,6 +60,9 @@ class App extends Component {
                         <Route path="/order" component={Order} />
                         <Route path="/mine" component={Mine} />
                         <Route path="/cart" component={Cart} />
+
+                        {/* 动态路由 */}
+                        <Route path="/goods/:id" component={Goods} />
 
 
                         {/* 登录/注册 */}

@@ -1,6 +1,6 @@
 import React, { Component } from "react"
 import Api from "../../api"
-import { Row, Col,Carousel,Icon} from 'antd';
+import { Row, Col, Carousel, Icon } from 'antd';
 // import './home.scss';
 import { connect } from "react-redux"
 
@@ -23,12 +23,12 @@ class Home extends Component {
         let { dispatch } = this.props
         dispatch({ type: "show_menu" })
         return (
-           
-            <div> 
+
+            <div>
                 {/* 顶部轮播图 */}
                 <div>
                     <div className="icon-list search">
-                        <Icon  type="search"style={{ fontSize: 24 }}></Icon>
+                        <Icon type="search" style={{ fontSize: 24 }}></Icon>
                         <span></span>
                         <Icon></Icon>
                     </div>
@@ -87,10 +87,10 @@ class Home extends Component {
                     <div className="mode-title">
                         <h3>热门目的地</h3>
                     </div>
-                    
+
                     <div className="dest-scroll">
                         <div className="dest-item">
-                            <img src="" alt=""/>
+                            <img src="" alt="" />
                         </div>
                     </div>
                 </div>
