@@ -64,7 +64,11 @@ class Mine extends Component {
         ]
     };
 
+    componentDidMount() {
+        console.log(this.props);
 
+
+    }
 
 
     goto = (path) => {
@@ -131,7 +135,7 @@ class Mine extends Component {
 
 let mapStateToProps = (state) => {
     return {
-        showMenu: state.common.showMenu
+        showMenu: state.common.showMenu,
     }
 }
 

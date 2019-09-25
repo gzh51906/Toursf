@@ -5,6 +5,8 @@ import { Icon, Button } from 'antd';
 import './reg.css'
 
 import axios from "axios"
+import { connect } from "react-redux"
+
 
 class Reg extends Component {
 
@@ -15,8 +17,8 @@ class Reg extends Component {
         // 生成随机数
         // this.handleR = this.handleR.bind(this);
         this.state = {
-            username: "",
-            Password: "",
+            phone: "",
+            password: "",
             isRemember: false,
             unameHelp: "",
             upwdHelp: "",
@@ -24,12 +26,11 @@ class Reg extends Component {
         }
     }
 
-
     //监听input中的数据，保存到state中
     changeUsername(e) {
-        let uname = e.target.value;
+        let phone = e.target.value;
         this.setState({
-            username: uname
+            phone
         });
         // console.log(this.state.userName);
     }
@@ -37,20 +38,23 @@ class Reg extends Component {
     changePassword(e) {
         let upwd = e.target.value;
         this.setState({
-            Password: upwd
+            password: upwd
         })
     }
     // 表单验证和正则
-    handleClick() {
-        if (this.state.username === "" || this.state.username === null) {
+    handleClick = async () => {
+        console.log(this.state.phone);
+
+
+        if (this.state.phone === "" || this.state.phone === null) {
             this.setState({
                 unameHelp: "* 用户名不能为空"
             })
-        } else if (!(/^1[3|4|5|7|8][0-9]{9}$/.test(this.state.username))) {
+        } else if (!(/^1[3|4|5|7|8][0-9]{9}$/.test(this.state.phone))) {
             this.setState({
                 unameHelp: "* 手机格式不正确"
             })
-        } else if (this.state.Password === "" || this.state.Password === null) {
+        } else if (this.state.password === "" || this.state.password === null) {
             this.setState({
                 unameHelp: "",
                 upwdHelp: "* 密码不能为空"
@@ -61,13 +65,40 @@ class Reg extends Component {
                 upwdHelp: ""
             });
         }
-        let data = axios.post('http://139.9.138.168:8888/user/reg', {
-            username: this.state.username,
-            Password: this.state.Password
-        })
-        console.log(data);
+        if (this.state.phone && (/^1[3|4|5|7|8][0-9]{9}$/.test(this.state.phone)) && this.state.password) {
+            let {
+                data
+            } = await axios.get('http://139.9.138.168:8888/user/check', {
+                params: {
+                    phone: this.state.phone,
+                    password: this.state.password
+                }
+            })
+            console.log(data.code);
+            if (data.code === 1) {
+                alert("用户名已存在!");
+                this.props.history.push('/login')
+            } else {
+                let {
+                    data
+                } = await axios.post('http://139.9.138.168:8888/user/reg', {
+                    phone: this.state.phone,
+                    password: this.state.password
+                })
+                console.log(data);
+                if (data.code === 1) {
+                    alert("注册成功!");
+                    this.props.history.push('/login')
+                } else {
+                    console.log("error!!");
+                }
+            }
+
+        }
+
 
     }
+
 
 
     // 生成随机数
@@ -89,7 +120,8 @@ class Reg extends Component {
 
     render() {
 
-
+        let { dispatch } = this.props
+        dispatch({ type: "hide_menu" })
         return (
             <div className='reg'>
                 <div className='reg_log'>
@@ -140,4 +172,11 @@ class Reg extends Component {
     }
 }
 
+let mapStateToProps = (state) => {
+    return {
+        showMenu: state.common.showMenu
+    }
+}
+
+Reg = connect(mapStateToProps)(Reg)
 export default Reg;

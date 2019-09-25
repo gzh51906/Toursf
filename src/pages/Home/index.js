@@ -1,11 +1,8 @@
 import React, { Component } from "react"
 import Api from "../../api"
-<<<<<<< HEAD
 import { Row, Col,Carousel,Icon} from 'antd';
 // import './home.scss';
-=======
 import { connect } from "react-redux"
->>>>>>> cxd
 
 class Home extends Component {
     state = {

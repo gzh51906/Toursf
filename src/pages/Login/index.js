@@ -2,6 +2,7 @@ import React, {
     Component
 } from 'react'
 
+import { connect } from "react-redux"
 
 import { Icon, Button } from 'antd';
 import './login.css'
@@ -14,9 +15,8 @@ class Login extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            userName: "",
-            userPassword: "",
-            isRemember: false,
+            phone: "",
+            password: "",
             unameHelp: "",
             upwdHelp: ""
         }
@@ -25,9 +25,9 @@ class Login extends Component {
 
     //监听input中的数据，保存到state中
     changeUsername(e) {
-        let uname = e.target.value;
+        let phone = e.target.value;
         this.setState({
-            userName: uname
+            phone
         });
         // console.log(this.state.userName);
     }
@@ -35,20 +35,20 @@ class Login extends Component {
     changePassword(e) {
         let upwd = e.target.value;
         this.setState({
-            userPassword: upwd
+            password: upwd
         })
     }
     // 表单验证和正则
-    handleClick() {
-        if (this.state.userName === "" || this.state.userName === null) {
+    handleClick = async () => {
+        if (this.state.phone === "" || this.state.phone === null) {
             this.setState({
                 unameHelp: "* 用户名不能为空"
             })
-        } else if (!(/^1[3|4|5|7|8][0-9]{9}$/.test(this.state.userName))) {
+        } else if (!(/^1[3|4|5|7|8][0-9]{9}$/.test(this.state.phone))) {
             this.setState({
                 unameHelp: "* 手机格式不正确"
             })
-        } else if (this.state.userPassword === "" || this.state.userPassword === null) {
+        } else if (this.state.password === "" || this.state.password === null) {
             this.setState({
                 unameHelp: "",
                 upwdHelp: "* 密码不能为空"
@@ -60,21 +60,50 @@ class Login extends Component {
             });
         }
 
-        axios.post('http://139.9.138.168:8888/user/login')
-            .then((item) => {
-                console.log(item);
-
+        if (this.state.phone && (/^1[3|4|5|7|8][0-9]{9}$/.test(this.state.phone)) && this.state.password) {
+            let {
+                data
+            } = await axios.get('http://139.9.138.168:8888/user/check', {
+                params: {
+                    phone: this.state.phone,
+                    password: this.state.password
+                }
             })
-    }
-    // 登录请求
-    // componentDidMount() {
-    //     // 在这里请求相关接口判断用户是否完成登录
-    //     axios.post('http://139.9.138.168:8888/user/login')
-    //         .then((item) => {
-    //             console.log(item);
+            console.log(data);
+            if (data.code === 0) {
+                this.props.history.push('/reg')
+            } else {
+                let {
+                    data
+                } = await axios.post('http://139.9.138.168:8888/user/login', {
+                    params: {
+                        phone: this.state.phone,
+                        password: this.state.password
+                    }
+                })
+                if (data.code === 1) {
+                    alert("登录成功!");
 
-    //         })
+
+                    // replace登录成功不能回退
+                    this.props.history.replace('/mine')
+                }
+
+            }
+        }
+
+
+    }
+    // componentDidMount() {
+    //     console.log(this.props);
     // }
+
+    islogin = () => {
+        dispatch({
+            type: 'login',
+            payload: this.state.phone
+        })
+    }
 
     // ---------
 
@@ -85,7 +114,8 @@ class Login extends Component {
         this.props.history.push('/mine')
     }
     render() {
-
+        let { dispatch } = this.props
+        dispatch({ type: "hide_menu" })
         return (
             <div className='login'>
                 <div className='logo'>
@@ -126,5 +156,14 @@ class Login extends Component {
         )
     }
 }
+
+let mapStateToProps = (state) => {
+    return {
+        showMenu: state.common.showMenu,
+        login: state.phone
+    }
+}
+
+Login = connect(mapStateToProps)(Login)
 
 export default Login;
