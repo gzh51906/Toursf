@@ -9,6 +9,8 @@ import './login.css'
 
 import axios from "axios"
 
+import Api from "../../api"
+
 class Login extends Component {
 
     // -表单验证
@@ -75,7 +77,7 @@ class Login extends Component {
         // } else {
         let {
             data
-        } = await axios.post('http://139.9.138.168:8888/user/login', {
+        } = await Api.post('/user/login', {
             phone: this.state.phone,
             password: this.state.password
         })
@@ -87,7 +89,7 @@ class Login extends Component {
         } else {
             this.props.history.push('/reg')
         }
-        console.log(data)
+        console.log("login:", data)
         // }
         // }
 
