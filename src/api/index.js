@@ -1,17 +1,11 @@
 import axios from "axios"
 
 const toursf = axios.create({
-    baseURL: "http://localhost:8888"
+    baseURL: "http://139.9.138.168:8888"
 })
 
 let get = async (item, params) => {
-<<<<<<< HEAD
-    let {
-        data
-    } = await toursf.get(item, {
-=======
     let { data } = await toursf.get(item, {
->>>>>>> cxd
         params
     })
     return data

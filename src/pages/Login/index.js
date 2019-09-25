@@ -2,6 +2,7 @@ import React, {
     Component
 } from 'react'
 
+import { connect } from "react-redux"
 
 import { Icon, Button } from 'antd';
 import './login.css'
@@ -16,7 +17,6 @@ class Login extends Component {
         this.state = {
             phone: "",
             password: "",
-            isRemember: false,
             unameHelp: "",
             upwdHelp: ""
         }
@@ -39,7 +39,7 @@ class Login extends Component {
         })
     }
     // 表单验证和正则
-    handleClick() {
+    handleClick = async () => {
         if (this.state.phone === "" || this.state.phone === null) {
             this.setState({
                 unameHelp: "* 用户名不能为空"
@@ -60,20 +60,49 @@ class Login extends Component {
             });
         }
 
-        // axios.post('http://139.9.138.168:8888/user/login')
-        //     .then((item) => {
-        //         console.log(item);
-
-        //     })
-    }
-    // 登录请求
-    componentDidMount() {
-        // 在这里请求相关接口判断用户是否完成登录
-        axios.get('http://139.9.138.168:8888/user')
-            .then((item) => {
-                console.log(item);
-
+        if (this.state.phone && (/^1[3|4|5|7|8][0-9]{9}$/.test(this.state.phone)) && this.state.password) {
+            let {
+                data
+            } = await axios.get('http://139.9.138.168:8888/user/check', {
+                params: {
+                    phone: this.state.phone,
+                    password: this.state.password
+                }
             })
+            console.log(data);
+            if (data.code === 0) {
+                this.props.history.push('/reg')
+            } else {
+                let {
+                    data
+                } = await axios.post('http://139.9.138.168:8888/user/login', {
+                    params: {
+                        phone: this.state.phone,
+                        password: this.state.password
+                    }
+                })
+                if (data.code === 1) {
+                    alert("登录成功!");
+
+
+                    // replace登录成功不能回退
+                    this.props.history.replace('/mine')
+                }
+
+            }
+        }
+
+
+    }
+    // componentDidMount() {
+    //     console.log(this.props);
+    // }
+
+    islogin = () => {
+        dispatch({
+            type: 'login',
+            payload: this.state.phone
+        })
     }
 
     // ---------
@@ -85,7 +114,8 @@ class Login extends Component {
         this.props.history.push('/mine')
     }
     render() {
-
+        let { dispatch } = this.props
+        dispatch({ type: "hide_menu" })
         return (
             <div className='login'>
                 <div className='logo'>
@@ -126,5 +156,14 @@ class Login extends Component {
         )
     }
 }
+
+let mapStateToProps = (state) => {
+    return {
+        showMenu: state.common.showMenu,
+        login: state.phone
+    }
+}
+
+Login = connect(mapStateToProps)(Login)
 
 export default Login;

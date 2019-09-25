@@ -9,6 +9,8 @@ class List extends Component {
         goods: []
     }
     async componentDidMount() {
+        // console.log(this.props);
+
         let { data } = await Api.get("/goods", { page: 0 })
         this.setState({
             goods: data
