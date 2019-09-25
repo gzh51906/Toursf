@@ -5,6 +5,15 @@
   overflow: hidden;
 }
 
+
+.slick-slide {
+  height: 75vw !important;
+}
+
+.slider-box {
+  height: 75vw;
+}
+
 .nav-box {
   margin: 28px 12px 0;
   overflow: hidden;
@@ -14,7 +23,13 @@
 .ant-carousel .slick-slide h3 {
   color: #fff;
 }
-
+.gutter-row{
+  margin-bottom: 16px;
+  text-align: center;
+}
+.ant-row{
+  margin-bottom: 28px;
+}
 .class-img {
   width: 72px;
   height: 72px;
@@ -44,6 +59,8 @@
 
 
 .dest-hot {
+  background: #fff;
+
   .mode-title {
     padding: 0 24px;
   }
@@ -53,15 +70,35 @@
     overflow: hidden;
     height: auto;
 
-    .dest-item {
+    .dest-hot-items {
       white-space: nowrap;
       overflow-x: auto;
       overflow-y: hidden;
       padding: 0 24px;
       letter-spacing: -4px;
+
+      .dest-hot-item {
+        position: relative;
+        float:left;
+        font-size: 14px;
+        letter-spacing: normal;
+        word-spacing: normal;
+        zoom: 1;
+        margin-right: 10px;
+        width: 28vw;
+        height: 37vw;
+
+        img {
+          width: 100%;
+          height: 100%;
+          border-radius: 4px;
+          background: #989090;
+        }
+      }
     }
   }
 }
+
 
 
 .mode-title {

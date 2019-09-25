@@ -1,15 +1,15 @@
 import React, { Component } from "react"
 import Api from "../../api"
-import { Row, Col,Carousel,Icon} from 'antd';
+import { Row, Col, Carousel, Icon } from 'antd';
 import './home.scss';
 import { connect } from "react-redux"
 
 class Home extends Component {
     state = {
         banner: [],
-        hot_destination: [],  
-       
-    }  
+        hot_destination: [],
+
+    }
     async componentDidMount() {
         /* 发送网络请求获取数据 */
         let { data } = await Api.get("/home", {});
@@ -25,10 +25,10 @@ class Home extends Component {
         /* 显示菜单栏 */
         let { dispatch } = this.props
         dispatch({ type: "show_menu" })
-        let {banner} = this.state
-        console.log(banner);
-         return (
-            <div> 
+        let { banner, hot_destination } = this.state
+        console.log(hot_destination);
+        return (
+            <div style={{ width: '100%', height: '100%', background: '#fff', }}>
                 {/* 顶部轮播图 */}
                 <div>
                     <div className="icon-list search">
@@ -37,13 +37,15 @@ class Home extends Component {
                         <Icon></Icon>
                     </div>
                 </div>
-                <Carousel autoplay>
+                
+                <Carousel style={{ height: '75vw' }}>
                     {
                         banner.map(item => {
-                            return <a href="">
-                                <img src={item.picture} alt="" />
+                            return <a href="" style={{ height: '75vw' }}>
+                                <img src={item.picture} alt="" key={item.id} style={{ width: '100%', height: '100%' }} />
                             </a>
-                        }) 
+
+                        })
                     }
                 </Carousel>
 
@@ -95,10 +97,16 @@ class Home extends Component {
                     <div className="mode-title">
                         <h3>热门目的地</h3>
                     </div>
-
                     <div className="dest-scroll">
-                        <div className="dest-item">
-                            <img src="" alt="" />
+                        <div className="dest-hot-items">
+                            {
+                                hot_destination.map(item => {
+                                    return<div className="dest-hot-item">
+                                        <img src={item.image} alt="" />
+                                    </div>
+
+                                })
+                            }
                         </div>
                     </div>
                 </div>
