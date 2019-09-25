@@ -1,0 +1,90 @@
+.ant-carousel .slick-slide {
+  text-align: center;
+  height: 160px;
+  line-height: 160px;
+  overflow: hidden;
+}
+
+.nav-box {
+  margin: 28px 12px 0;
+  overflow: hidden;
+  height: auto;
+}
+
+.ant-carousel .slick-slide h3 {
+  color: #fff;
+}
+
+.class-img {
+  width: 72px;
+  height: 72px;
+  background: url(../../images/home2017v5.png);
+  background-size: 370px 184px;
+}
+
+.home-activity {
+  margin: 0 24px;
+  height: auto;
+  overflow: hidden;
+
+  img {
+    width: 100%;
+  }
+}
+
+.discount-area {
+  padding: 0 24px;
+
+  img {
+    border-radius: 4px;
+    margin-top: 28px;
+    width: 100%;
+  }
+}
+
+
+.dest-hot {
+  .mode-title {
+    padding: 0 24px;
+  }
+
+  .dest-scroll {
+    width: 100%;
+    overflow: hidden;
+    height: auto;
+
+    .dest-item {
+      white-space: nowrap;
+      overflow-x: auto;
+      overflow-y: hidden;
+      padding: 0 24px;
+      letter-spacing: -4px;
+    }
+  }
+}
+
+
+.mode-title {
+  margin: 26px 0 14px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  h3 {
+    font-size: 18px;
+    color: #363636;
+    font-weight: bolder;
+    margin: 0
+  }
+}
+
+.new {
+  padding: 0 24px;
+
+
+  span {
+    font-size: 14px;
+    color: #0090F2;
+    margin-right: -6px;
+  }
+}

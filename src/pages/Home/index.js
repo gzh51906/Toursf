@@ -1,32 +1,33 @@
 import React, { Component } from "react"
 import Api from "../../api"
-<<<<<<< HEAD
 import { Row, Col,Carousel,Icon} from 'antd';
-// import './home.scss';
-=======
+import './home.scss';
 import { connect } from "react-redux"
->>>>>>> cxd
 
 class Home extends Component {
     state = {
         banner: [],
-        hot_destination: []
-    }
+        hot_destination: [],  
+       
+    }  
     async componentDidMount() {
         /* 发送网络请求获取数据 */
         let { data } = await Api.get("/home", {});
         this.setState({
             banner: data[0].banner,
-            hot_destination: data[0].banner
-        })
-
+            hot_destination: data[0].hot_destination
+        });
+        // console.log(this.state.banner);
+        // console.log(this.state.hot_destination)
+        // console.log(this.state);
     }
     render() {
         /* 显示菜单栏 */
         let { dispatch } = this.props
         dispatch({ type: "show_menu" })
-        return (
-           
+        let {banner} = this.state
+        console.log(banner);
+         return (
             <div> 
                 {/* 顶部轮播图 */}
                 <div>
@@ -37,9 +38,13 @@ class Home extends Component {
                     </div>
                 </div>
                 <Carousel autoplay>
-                    <a href="">
-                        <img src="" alt="" />
-                    </a>
+                    {
+                        banner.map(item => {
+                            return <a href="">
+                                <img src={item.picture} alt="" />
+                            </a>
+                        }) 
+                    }
                 </Carousel>
 
                 {/* 分类 */}
