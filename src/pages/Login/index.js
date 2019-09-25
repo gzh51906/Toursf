@@ -76,14 +76,11 @@ class Login extends Component {
                 let {
                     data
                 } = await axios.post('http://139.9.138.168:8888/user/login', {
-                    params: {
-                        phone: this.state.phone,
-                        password: this.state.password
-                    }
+                    phone: this.state.phone,
+                    password: this.state.password
                 })
                 if (data.code === 1) {
                     alert("登录成功!");
-
 
                     // replace登录成功不能回退
                     this.props.history.replace('/mine')
