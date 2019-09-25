@@ -63,7 +63,7 @@ class List extends Component {
                         <span className="nav-list">筛选</span>
                     </div>
                 </header>
-                <div className="content" ref={c => this._container = c} eonScrollCaptur={() => this._onScrollEvent(this)}>
+                <div className="content" ref={c => this._container = c} onScrollCapture={() => this._onScrollEvent(this)}>
                     {
                         goods.map(item => {
                             return <div className="goods" key={item.id} onClick={this.goto.bind(this, item.id)}>

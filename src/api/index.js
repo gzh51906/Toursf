@@ -12,7 +12,13 @@ let get = async (item, params) => {
     })
     return data
 }
-let post = () => { }
+let post = async (item, params) => {
+    // console.log("api:", params)
+    let { data } = await toursf.post(item, {
+        params
+    })
+    return data
+}
 let patch = () => { }
 let remove = () => { }
 

@@ -1,15 +1,15 @@
 import React, { Component } from "react"
 import Api from "../../api"
-import { Row, Col,Carousel,Icon} from 'antd';
+import { Row, Col, Carousel, Icon } from 'antd';
 import './home.scss';
 import { connect } from "react-redux"
 
 class Home extends Component {
     state = {
         banner: [],
-        hot_destination: [],  
-       
-    }  
+        hot_destination: [],
+
+    }
     async componentDidMount() {
         /* 发送网络请求获取数据 */
         let { data } = await Api.get("/home", {});
@@ -25,10 +25,10 @@ class Home extends Component {
         /* 显示菜单栏 */
         let { dispatch } = this.props
         dispatch({ type: "show_menu" })
-        let {banner} = this.state
+        let { banner } = this.state
         console.log(banner);
-         return (
-            <div> 
+        return (
+            <div>
                 {/* 顶部轮播图 */}
                 <div>
                     <div className="icon-list search">
@@ -43,7 +43,7 @@ class Home extends Component {
                             return <a href="">
                                 <img src={item.picture} alt="" />
                             </a>
-                        }) 
+                        })
                     }
                 </Carousel>
 
