@@ -34,10 +34,10 @@ class Home extends Component {
                     <div className="icon-list search">
                         <Icon type="search" style={{ fontSize: 24 }}></Icon>
                         <span></span>
-                        <Icon></Icon>
+                        {/* <Icon></Icon> */}
                     </div>
                 </div>
-                
+
                 <Carousel style={{ height: '75vw' }}>
                     {
                         banner.map(item => {
@@ -100,7 +100,7 @@ class Home extends Component {
                         <div className="dest-hot-items">
                             {
                                 hot_destination.map(item => {
-                                    return<div className="dest-hot-item">
+                                    return <div className="dest-hot-item">
                                         <img src={item.image} alt="" />
                                     </div>
 

@@ -43,9 +43,6 @@ class Reg extends Component {
     }
     // 表单验证和正则
     handleClick = async () => {
-        console.log(this.state.phone);
-
-
         if (this.state.phone === "" || this.state.phone === null) {
             this.setState({
                 unameHelp: "* 用户名不能为空"
@@ -65,6 +62,7 @@ class Reg extends Component {
                 upwdHelp: ""
             });
         }
+
         if (this.state.phone && (/^1[3|4|5|7|8][0-9]{9}$/.test(this.state.phone)) && this.state.password) {
             let {
                 data
@@ -74,7 +72,7 @@ class Reg extends Component {
                     password: this.state.password
                 }
             })
-            console.log(data.code);
+            console.log("666",data);
             if (data.code === 1) {
                 alert("用户名已存在!");
                 this.props.history.push('/login')

@@ -32,27 +32,18 @@
 }
 
 .order .order_box .but {
-  width: 100%;
   margin: 0px 20%;
   text-align: center;
 }
 
-.order .order_box .but .but_login {
-  width: 100%;
-}
-
-.order .order_box .but .but_login .but_p {
+.order .order_box .but .but_p {
   background: #f8b44d;
-}
-
-.order .order_box .but .but_cu {
-  width: 100%;
 }
 
 .order .order_box .but p {
   display: block;
   height: 40px;
-  width: 60%;
+  width: 100%;
   background: #fff;
   line-height: 40px;
   margin-top: 20px;

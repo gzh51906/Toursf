@@ -1,0 +1,239 @@
+.Dest {
+    width: 100%;
+
+    .dest_top {
+        width: 100%;
+        height: 64%;
+        position: relative;
+
+        img {
+            width: 100%;
+        }
+
+
+
+        .dest_t {
+            overflow: hidden;
+            position: absolute;
+            width: 100%;
+            height: 400px;
+            top: 0px;
+            right: 0px;
+            bottom: 0px;
+            left: 0px;
+            text-align: center;
+            background: rgba(0, 0, 0, .1);
+
+            h1 {
+                font-size: 49px;
+                font-weight: bold;
+                color: #fff;
+                position: relative;
+
+            }
+
+            .dest_p {
+                width: 90%;
+                border-radius: 20px 20px;
+                height: 25px;
+                position: absolute;
+                left: 20px;
+                color: #fff;
+                background: rgba(100, 100, 100, 0.4);
+                line-height: 25px;
+            }
+
+            .dest_bg {
+                position: absolute;
+                width: 100%;
+                height: 25px;
+                background: #fff;
+                bottom: 0px;
+                border-radius: 20px 20px 0px 0px;
+            }
+        }
+
+    }
+
+    .Dest_main {
+        width: 100%;
+        background: #fff;
+        // height: 2000px;
+        padding: 0px 20px;
+
+
+
+        h2 {
+            font-size: 16px;
+            font-weight: bold;
+            color: #000;
+            margin-bottom: 10px;
+        }
+
+        .Dest_main1 {
+            overflow: hidden;
+            width: 100%;
+
+
+            .Dest_nav1 {
+                overflow: auto;
+
+                .de {
+                    width: 700px;
+                    height: 85px;
+
+                    div {
+                        width: 10%;
+                        margin: 0px 8px;
+                        float: left;
+                        text-align: center;
+
+                        img {
+                            width: 44px;
+                            height: 44px;
+                        }
+
+                        p {
+                            font-size: 14px;
+                            margin-top: 5px;
+                        }
+                    }
+                }
+            }
+
+        }
+
+        .Dest_main2 {
+            width: 100%;
+            margin-top: 27px;
+            overflow: hidden;
+            padding-bottom: 25px;
+
+            .Dest_nav2 {
+
+                div {
+                    position: relative;
+                    width: 46%;
+                    float: left;
+                    margin: 0 2%;
+                    margin-bottom: 4%;
+
+                    img {
+                        width: 100%;
+                        height: 24vw;
+                        border-radius: 4px;
+                    }
+
+                    span {
+                        position: absolute;
+                        left: 0px;
+                        bottom: 0;
+                        width: 100%;
+                        height: 22px;
+                        line-height: 22px;
+                        color: #fff;
+                        padding-left: 7px;
+                        background: rgba(0, 0, 0, .3);
+                        border-radius: 0 0 5px 5px;
+                    }
+                }
+            }
+        }
+
+        .Dest_main3 {
+            width: 100%;
+            overflow: hidden;
+            padding-bottom: 15px;
+
+            .Dest_nav3 {
+                div {
+                    width: 23%;
+                    float: left;
+                    margin-right: 8px;
+
+                    img {
+                        height: 93px;
+                        border-radius: 4px;
+                    }
+
+                    span {
+                        text-align: center;
+                        margin-top: 6px;
+                        font-size: 12px;
+                        color: #363636;
+                        display: block;
+                        height: 20px;
+                        width: 84%;
+                        overflow: hidden;
+                        white-space: nowrap;
+                        text-overflow: ellipsis;
+                    }
+                }
+            }
+        }
+
+        .Dest_main4 {
+            width: 100%;
+            padding-bottom: 25px;
+
+            img {
+                width: 100%;
+            }
+        }
+
+        .Dest_main5 {
+            width: 100%;
+            padding-bottom: 25px;
+
+            .Dest_nav5it {
+                width: 45%;
+                overflow: hidden;
+                margin: 0px 5px;
+                box-shadow: 0 2px 10px #e8e0e0;
+                border-radius: 4px;
+                margin-bottom: 22px;
+
+                .Dest_nav5-img {
+                    img {
+                        width: 100%;
+                    }
+                }
+
+                .Dest_nav5-title {
+                    width: 100%;
+                    height: 105px;
+
+                    h4 {
+                        font-weight: 700;
+                        padding: 0 10px;
+                        margin: 10px 0;
+                        font-size: 15px;
+                        overflow: hidden;
+                        text-overflow: ellipsis;
+                        display: -webkit-box;
+                        -webkit-box-orient: vertical;
+                        -webkit-line-clamp: 2;
+                        word-break: break-all;
+                    }
+
+                    p {
+                        padding-right: 5px;
+                        margin-top: 22px;
+                        text-align: right;
+                    }
+                }
+            }
+
+            .but {
+                display: block;
+                width: 100%;
+                height: 40px;
+                line-height: 40px;
+                text-align: center;
+                color: #0090f2;
+                border: 1px solid #0090F2;
+                border-radius: 4px;
+            }
+        }
+    }
+}

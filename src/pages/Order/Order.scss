@@ -31,27 +31,21 @@
         }
 
         .but {
-            width: 100%;
             margin: 0px 20%;
             text-align: center;
 
-            .but_login {
-                width: 100%;
 
-                .but_p {
-                    background: rgb(248, 180, 77);
 
-                }
+            .but_p {
+                background: rgb(248, 180, 77);
+
             }
 
-            .but_cu {
-                width: 100%;
-            }
 
             p {
                 display: block;
                 height: 40px;
-                width: 60%;
+                width: 100%;
                 background: #fff;
                 line-height: 40px;
                 margin-top: 20px;
