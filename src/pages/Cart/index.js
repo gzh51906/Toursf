@@ -6,7 +6,7 @@ import { Icon, Button } from 'antd';
 
 class Cart extends Component {
 
-  
+
 
     render() {
         return (
@@ -16,7 +16,7 @@ class Cart extends Component {
                     > <Icon type="left" style={{ fontSize: 18 }}
                         onClick={this.mine}
                         /></span>
-                    <span className='logo_nm'>登录</span>
+                    <span className='logo_nm'>购物车</span>
                 </div>
             </div>
         )
