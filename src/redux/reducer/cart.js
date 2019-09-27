@@ -1,23 +1,9 @@
 // 初始state
 let defaultState = {
-    goodslist: [{
-        goods_id: 1,
-        goods_image: 'https://www.nanshig.com/data/upload/shop/store/goods/47/47_06095303389813607_360.jpg',
-        goods_name: 'xxxx',
-        goods_price: 998,
-        qty: 1
-    }, {
-        goods_id: 2,
-        goods_image: 'https://www.nanshig.com/data/upload/shop/store/goods/47/47_06095303389813607_360.jpg',
-        goods_name: 'oooo',
-        goods_price: 198,
-        qty: 5
-    }],
+    goodslist: [],
     totalPrice: 0
 }
-
 function reducer(state = defaultState, action) {
-
     switch (action.type) {
         case "change_total_price":
             return {
@@ -35,17 +21,38 @@ function reducer(state = defaultState, action) {
             return {
                 ...state,
                 goodslist: state.goodslist.map(item => {
-                    if (item.goods_id === action.goods_id) {
+                    if (item.id === action.id) {
                         item.qty = action.qty
                     }
                     return item
                 })
             }
 
-        case "remove_cart":
+        case "change_checked":
             return {
                 ...state,
-                goodslist: state.goodslist.filter(item => item.goods_id != action.goods_id)
+                goodslist: state.goodslist.map(item => {
+                    if (item.id === action.id) {
+                        item.checked = !item.checked
+                    }
+                    return item
+                })
+            }
+
+        case "change_allchecked":
+            return {
+                ...state,
+                goodslist: state.goodslist.map(item => {
+                    item.checked = action.allChecked
+                    return item
+                })
+            }
+
+        case "remove_cart":
+            // console.log(action.id)
+            return {
+                ...state,
+                goodslist: state.goodslist.filter(item => item.id != action.id)
             }
 
         case "clear_cart":

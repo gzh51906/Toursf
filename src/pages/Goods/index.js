@@ -1,6 +1,6 @@
 import React, { Component } from "react"
 import { connect } from "react-redux"
-import { Icon } from "antd"
+import { Icon, Badge } from "antd"
 import "./goods.scss"
 import Api from "../../api"
 
@@ -18,17 +18,39 @@ class Goods extends Component {
         this.setState({
             goods: data[0]
         })
+        // console.log(this.props)
     }
 
     gotoback() {
         this.props.history.goBack()
     }
 
+    /* 加入购物车 */
+    addtoCart() {
+        /* 拿到需要传递的数据 */
+        let { id, name, image, default_price } = this.state.goods
+        let goods = { id, name, image, default_price, qty: 1, checked: true }
+
+        let { dispatch, goodslist } = this.props
+        let current = goodslist.filter(item => item.id === id)[0];
+        if (current) {
+            dispatch({ type: "change_qty", id, qty: current.qty + 1 })
+        } else {
+            dispatch({ type: "add_to_cart", payload: goods })
+        }
+    }
+
+    /* 跳转购物车 */
+    gotoCart() {
+        this.props.history.push("/cart")
+    }
+
     render() {
         /* 隐藏菜单栏 */
-        let { dispatch } = this.props
+        let { dispatch, goodslist } = this.props
         dispatch({ type: "hide_menu" })
         let item = this.state.goods
+        let num = goodslist.length
         return (
             <div id="goods">
                 <div className="header">
@@ -39,7 +61,9 @@ class Goods extends Component {
                         <span className="nav-list">行程</span>
                         <span className="nav-list">须知</span>
                     </div>
-                    <Icon type="shopping-cart" className="cart" />
+                    <Badge count={num} offset={[-12, 2]}>
+                        <Icon type="shopping-cart" className="cart" onClick={this.gotoCart.bind(this)} />
+                    </Badge>
                 </div>
                 <div className="main">
                     <div className="item-img">
@@ -75,7 +99,7 @@ class Goods extends Component {
                         <Icon type="aliwangwang" className="icon" />
                         <p>咨询</p>
                     </div>
-                    <button className="cart">加入购物车</button>
+                    <button className="cart" onClick={this.addtoCart.bind(this)}>加入购物车</button>
                     <button className="buy">
                         <p>立即订购</p>
                         <span>(2人起订)</span>
@@ -89,7 +113,7 @@ class Goods extends Component {
 let mapStateToProps = (state) => {
     return {
         showMenu: state.common.showMenu,
-        goodsid: state.common.goodsid
+        goodslist: state.cart.goodslist
     }
 }
 
