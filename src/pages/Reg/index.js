@@ -121,6 +121,7 @@ class Reg extends Component {
         let { dispatch } = this.props
         dispatch({ type: "hide_menu" })
         return (
+
             <div className='reg'>
                 <div className='reg_log'>
                     <span className='icon'
@@ -164,6 +165,7 @@ class Reg extends Component {
                     </div>
 
                 </div>
+
                 {/*  */}
             </div>
         )

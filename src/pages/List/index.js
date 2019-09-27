@@ -25,7 +25,7 @@ class List extends Component {
     }
 
     _onScrollEvent(d) {
-        console.log(d._container.scrollTop)
+        console.log("hao", d._container.scrollTop)
         // if (this._container.scrollTop + this._container.clientHeight === this._container.scrollHeight) {
         //     ///todo: do something
         // }

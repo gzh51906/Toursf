@@ -22,6 +22,8 @@ import Login from './pages/Login'
 import Reg from './pages/Reg'
 import Cart from './pages/Cart'
 import Goods from "./pages/Goods"
+import Customer from "./pages/Customer"
+import DestMore from "./pages/DestMore"
 
 import Search from "./pages/Search"
 import List from "./pages/List"
@@ -60,6 +62,10 @@ class App extends Component {
                         <Route path="/order" component={Order} />
                         <Route path="/mine" component={Mine} />
                         <Route path="/cart" component={Cart} />
+
+                        <Route path="/customer" component={Customer} />
+
+                        <Route path="/destmore" component={DestMore} />
 
                         {/* 动态路由 */}
                         <Route path="/goods/:id" component={Goods} />
