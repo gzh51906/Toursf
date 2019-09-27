@@ -19,10 +19,11 @@ class Home extends Component {
         /* 发送网络请求获取数据 */
         let { data } = await Api.get("/home", {});
         this.setState({
+            
             banner: data[0].banner,
             hot_destination: data[0].hot_destination
         });
-        // console.log(this.state.banner);
+        console.log("home", this.state.banner);
         // console.log(this.state.hot_destination)
         // console.log(this.state);
     }

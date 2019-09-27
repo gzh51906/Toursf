@@ -1,4 +1,4 @@
-.order {
+.customer {
   margin: 0px;
   padding: 0px;
   width: 100%;
@@ -6,24 +6,24 @@
   background: #fff;
 }
 
-.order .order_box {
+.customer .customer_box {
   width: 100%;
   height: 400px;
   background: #fff;
 }
 
-.order .order_box .order_img {
+.customer .customer_box .customer_img {
   line-height: 400px;
   text-align: center;
   position: relative;
 }
 
-.order .order_box .order_img img {
+.customer .customer_box .customer_img img {
   width: 45%;
   border-radius: 50%;
 }
 
-.order .order_box .order_img p {
+.customer .customer_box .customer_img p {
   height: 10px;
   width: 100%;
   text-align: center;
@@ -31,16 +31,16 @@
   top: 35%;
 }
 
-.order .order_box .but {
+.customer .customer_box .but {
   margin: 0px 20%;
   text-align: center;
 }
 
-.order .order_box .but .but_p {
+.customer .customer_box .but .but_p {
   background: #f8b44d;
 }
 
-.order .order_box .but p {
+.customer .customer_box .but p {
   display: block;
   height: 40px;
   width: 100%;

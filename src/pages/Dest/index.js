@@ -2,26 +2,56 @@ import React, { Component } from "react"
 import { connect } from "react-redux"
 import { Icon, } from 'antd';
 import './Dest.css'
+import Api from '../../api'
 
 class Dest extends Component {
 
+    constructor(props) {
+        super(props);
+        this.state = {
+            goods: [],
+            goodsB: []
+        }
+    }
+
+    async componentDidMount() {
+        let { data } = await Api.get('/goods', {
+            page: 0
+        })
+
+        this.setState({
+            goods: data.slice(1, 5),
+            goodsB: data.slice(5, 9)
+        })
+        // console.log(this.state.goodsB);
+    }
+
+    goto(id) {
+        this.props.history.push(`/goods/${id}`)
+    }
+
+    gotoback(path) {
+        this.props.history.push(path)
+    }
 
     render() {
         /* 显示菜单栏 */
         let { dispatch } = this.props
         dispatch({ type: "show_menu" })
+        let { goods } = this.state
+        let { goodsB } = this.state
         return (
             <div className="Dest">
                 <div className='dest_top'>
-                <Icon type="search" style={{
-                    position:'absolute',
-                    fontSize:24,
-                    fontWeight:700,
-                    color:"#ffffff",
-                    top:15,
-                    right:15,
-                    zIndex:10
-                }}/>
+                    <Icon type="search" style={{
+                        position: 'absolute',
+                        fontSize: 24,
+                        fontWeight: 700,
+                        color: "#ffffff",
+                        top: 15,
+                        right: 15,
+                        zIndex: 10
+                    }} />
                     <img src="//cdn.tff.bz/f2/59/5f/美国2.jpg?imageView2/1/w/1125/h/1200/q/85/format/jpg" alt="" />
                     <div className='dest_t'>
                         <div style={
@@ -55,7 +85,7 @@ class Dest extends Component {
                         <h2>产品分类</h2>
                         <div className='Dest_nav1'>
                             <div className='de'>
-                                <div>
+                                <div onClick={this.gotoback.bind(this, '/list')}>
                                     <img src="../../images/Dest01.png" alt="" />
                                     <p>精品游</p>
                                 </div>
@@ -85,7 +115,7 @@ class Dest extends Component {
                     <div className='Dest_main2'>
                         <h2>热门推荐</h2>
                         <div className='Dest_nav2'>
-                            <div>
+                            <div onClick={this.gotoback.bind(this, '/list')}>
                                 <img src="//cdn.tff.bz/f2/91/20/黄石国家公园-标识.jpg?imageView2/1/w/324/h/182/q/80/format/jpg" alt="" />
                                 <span>黄石公园大美天地</span>
                             </div>
@@ -106,15 +136,12 @@ class Dest extends Component {
                     <div className='Dest_main3'>
                         <div style={{ overflow: "hidden" }}>
                             <h2 style={{ float: "left" }}>必去景点</h2>
-
-
-
-                            {/*  */}
-                            <span style={{ float: "right", display: 'inlineBlock', color: '#0090F2' }}>查看更多></span>
-                            
+                            <span style={{ float: "right", display: 'inlineBlock', color: '#0090F2' }}
+                                onClick={this.gotoback.bind(this, '/destmore')}
+                            >查看更多></span>
                         </div>
                         <div className='Dest_nav3'>
-                            <div>
+                            <div onClick={this.gotoback.bind(this, '/list')}>
                                 <img src="//toursforfun.tff.bz/images/TourCity201604191461080699_5716527bc3847.jpg?imageView2/1/w/154/h/188/q/80/format/jpg" alt="" />
                                 <span>羚羊峡谷</span>
                             </div>
@@ -133,67 +160,71 @@ class Dest extends Component {
                         </div>
                     </div>
                     <div className='Dest_main4'>
-                        <img src="//cdn.tff.bz/f2/windtour/e0/fb/banner-%E4%BC%98%E6%83%A0%E4%B8%93%E5%8C%BA.jpg?imageView2/1/w/1332/h/634/q/90/format/jpg" alt="" />
+                        <img src="//cdn.tff.bz/f2/windtour/e0/fb/banner-%E4%BC%98%E6%83%A0%E4%B8%93%E5%8C%BA.jpg?imageView2/1/w/1332/h/634/q/90/format/jpg" alt="" onClick={this.list} />
                     </div>
                     <div className='Dest_main5'>
                         <h2>跟团游销量榜</h2>
-                        <div className='Dest_nav5' style={{overflow: 'hidden',display: "flex",justifyContent:"space-between"}}>
-                            <div className='Dest_nav5it'>
-                                <div className='Dest_nav5-img'>
-                                    <img src="//cdn.tff.bz/f1/windtour/22/17/图片1.jpg?imageView2/1/w/660/h/440/q/75/format/jpg" alt="" />
-                                </div>
-                                <div className='Dest_nav5-title'>
-                                    <h4> &lt;14人精致小团&gt;【美国历史文化之旅】4天亲身体验《飘》中的南北往事：探秘比特摩尔庄园+可口可乐世界+乔治亚水族馆+CNN总部+海伦德国村+地下亲手淘金探险；全程含酒店早餐</h4>
-                                    <p>
-                                        <span style={{ color: '#fb5f10', fontSize: 20, fontWeight: 700,marginRight:7 }}>￥1902</span>
-                                        <span>起</span>
-                                    </p>
-                                </div>
-                            </div>
-                            <div className='Dest_nav5it'>
-                                <div className='Dest_nav5-img'>
-                                    <img src="//cdn.tff.bz/f1/windtour/22/17/图片1.jpg?imageView2/1/w/660/h/440/q/75/format/jpg" alt="" />
-                                </div>
-                                <div className='Dest_nav5-title'>
-                                    <h4> &lt;14人精致小团&gt;【美国历史文化之旅】4天亲身体验《飘》中的南北往事：探秘比特摩尔庄园+可口可乐世界+乔治亚水族馆+CNN总部+海伦德国村+地下亲手淘金探险；全程含酒店早餐</h4>
-                                    <p>
-                                        <span style={{ color: '#fb5f10', fontSize: 20, fontWeight: 700 ,marginRight:7}}>￥1902</span>
-                                        <span>起</span>
-                                    </p>
-                                </div>
+                        <div className='Dest_nav5'>
+                            <div style={{
+                                overflow: 'hidden', display: "flex", justifyContent: "space-between",
+                                flexWrap: "wrap"
+                            }}>
+                                {
+                                    goods.map(item => {
+                                        return (
+                                            <div
+                                                onClick={this.goto.bind(this, item.id)}
+                                                className='Dest_nav5it' key={item.id}>
+                                                <div className='Dest_nav5-img'>
+                                                    <img src={item.image} />
+                                                </div>
+                                                <div className='Dest_nav5-title'>
+                                                    <h4> {item.name}</h4>
+                                                    <p>
+                                                        <span style={{ color: '#fb5f10', fontSize: 20, fontWeight: 700, marginRight: 7 }}>￥{item.origin_price}</span>
+                                                        <span>起</span>
+                                                    </p>
+                                                </div>
+                                            </div>
+                                        )
+                                    })
+                                }
                             </div>
                         </div>
-                        <span className='but'>显示所有跟团游</span>
+                        <span className='but' onClick={this.gotoback.bind(this, '/list')}>显示所有跟团游</span>
                     </div>
                     <div className='Dest_main5'>
                         <h2>当地玩乐销量榜</h2>
-                        <div className='Dest_nav5' style={{overflow: 'hidden',display: "flex",justifyContent:"space-between"}}>
-                            <div className='Dest_nav5it'>
-                                <div className='Dest_nav5-img'>
-                                    <img src="//tffimg.tff.bz/72/15/88d/8e6/2cd5e949c7ddcb9eee5ed0.jpg?imageView2/1/w/660/h/440/q/75/format/jpg" alt="" />
-                                </div>
-                                <div className='Dest_nav5-title'>
-                                    <h4> 【电子票】美国自然历史博物馆(American Museum of Natural History)</h4>
-                                    <p>
-                                        <span style={{ color: '#fb5f10', fontSize: 20, fontWeight: 700,marginRight:7 }}>￥93</span>
-                                        <span>起</span>
-                                    </p>
-                                </div>
-                            </div>
-                            <div className='Dest_nav5it'>
-                                <div className='Dest_nav5-img'>
-                                    <img src="//tffimg.tff.bz/72/15/88d/8e6/2cd5e949c7ddcb9eee5ed0.jpg?imageView2/1/w/660/h/440/q/75/format/jpg" alt="" />
-                                </div>
-                                <div className='Dest_nav5-title'>
-                                    <h4> 【电子票】美国自然历史博物馆(American Museum of Natural History)</h4>
-                                    <p>
-                                        <span style={{ color: '#fb5f10', fontSize: 20, fontWeight: 700 ,marginRight:7}}>￥93</span>
-                                        <span>起</span>
-                                    </p>
-                                </div>
+                        <div className='Dest_nav5'>
+
+                            <div style={{
+                                overflow: 'hidden', display: "flex", justifyContent: "space-between",
+                                flexWrap: "wrap"
+                            }}>
+                                {
+                                    goodsB.map(item => {
+                                        return (
+                                            <div
+                                                onClick={this.goto.bind(this, item.id)}
+                                                className='Dest_nav5it' key={item.id}>
+                                                <div className='Dest_nav5-img'>
+                                                    <img src={item.image} />
+                                                </div>
+                                                <div className='Dest_nav5-title'>
+                                                    <h4> {item.name}</h4>
+                                                    <p>
+                                                        <span style={{ color: '#fb5f10', fontSize: 20, fontWeight: 700, marginRight: 7 }}>￥{item.origin_price}</span>
+                                                        <span>起</span>
+                                                    </p>
+                                                </div>
+                                            </div>
+
+                                        )
+                                    })
+                                }
                             </div>
                         </div>
-                        <span className='but'>显示所有当地玩乐</span>
+                        <span className='but' onClick={this.gotoback.bind(this, '/list')}>显示所有当地玩乐</span>
                     </div>
                 </div>
             </div>
