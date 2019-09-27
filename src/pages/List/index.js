@@ -11,43 +11,79 @@ class List extends Component {
     }
 
     state = {
-        goods: []
+        goods: [],
+        page: 0,
+        num: 1,
+        top: "none"
     }
     async componentDidMount() {
-        // console.log(this.props)
+        let page = await Api.get("/goods/page", {})
+        page = page.data
+        this.setState({
+            page: page
+        })
         let { data } = await Api.get("/goods", { page: 0 })
-        // console.log(data)
         this.setState({
             goods: data
         })
-
-
+        // console.log(data)
     }
 
+    /* 监听元素中的滚动 */
     _onScrollEvent(d) {
-        console.log(d._container.scrollTop)
-        // if (this._container.scrollTop + this._container.clientHeight === this._container.scrollHeight) {
-        //     ///todo: do something
-        // }
+        // console.log(d)
+        /* 监听页面滚动显示top */
+        if (d._container.scrollTop > 600) {
+            this.setState({
+                top: "block"
+            })
+        } else (
+            this.setState({
+                top: "none"
+            })
+        )
+        // console.log(d._container.scrollHeight, d._container.clientHeight, Math.ceil(d._container.scrollTop))
+        // let talk = d._container.scrollHeight - d._container.clientHeight - Math.ceil(d._container.scrollTop)
+        // console.log(Math.round(d._container.scrollTop + d._container.clientHeight), d._container.scrollHeight)
+        /* 监听页面滚动发送网络请求 */
+        if (Math.round(d._container.scrollTop + d._container.clientHeight) >= d._container.scrollHeight) {
+            this.getDatalist()
+        }
     }
 
+    /* 懒加载=>发送网络请求 */
+    async getDatalist() {
+        let { num } = this.state
+        // console.log(num)
+        let { data } = await Api.get("/goods", { page: num })
+        let goods = this.state.goods
+        data.forEach(item => {
+            goods.push(item)
+        });
+        this.setState({
+            goods: goods,
+            num: num + 1
+        })
+        // console.log(this.state.goods)
+    }
+
+    /* 跳转到商品详情页 */
     goto(id) {
         this.props.history.push(`/goods/${id}`)
-        // let { dispatch } = this.props
-        // dispatch({ type: "goods_id", id })
+    }
+
+    /* 返回顶部时间 */
+    clickTop() {
+        this._container.scrollTop = 0
     }
 
     render() {
         /* 隐藏菜单栏 */
         let { dispatch } = this.props
         dispatch({ type: "hide_menu" })
-        let { goods } = this.state
+        let { goods, top } = this.state
         return (
             <div id="list">
-
-                <div className="top">
-                    <img src="../../images/back_top.png" />
-                </div>
                 <header className="header">
                     <div className="search">
                         <Icon type="left" className="goback" />
@@ -64,6 +100,9 @@ class List extends Component {
                     </div>
                 </header>
                 <div className="content" ref={c => this._container = c} onScrollCapture={() => this._onScrollEvent(this)}>
+                    <div className="top" style={{ display: top }} onClick={this.clickTop.bind(this)}>
+                        <img src="../../images/back_top.png" />
+                    </div>
                     {
                         goods.map(item => {
                             return <div className="goods" key={item.id} onClick={this.goto.bind(this, item.id)}>
@@ -101,8 +140,7 @@ class List extends Component {
 
 let mapStateToProps = (state) => {
     return {
-        showMenu: state.common.showMenu,
-        // goodsid: state.common.goodsid
+        showMenu: state.common.showMenu
     }
 }
 
