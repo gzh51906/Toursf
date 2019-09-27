@@ -1,0 +1,65 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+.footer{
+    z-index: 999;
+}
+
+.title{
+    font-size: 18px;
+    font-weight: 700;
+    display: block;
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    z-index: 0;
+    overflow: hidden;
+    margin: 0 10px;
+    min-width: 30px;
+    height: 43px;
+    text-align: center;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    font-size: 17px;
+    font-weight: 500;
+    line-height: 44px;
+}
+.discover-area{
+    width: 27%;
+    background-color: #eee;
+    box-sizing: border-box;
+    position: fixed;
+    left: 0;
+    top: 44px;
+    bottom: 0;
+    z-index: 10;
+    overflow-y: scroll;
+}
+.found-area-item{
+    height: 48px;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+    -webkit-justify-content: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
+    color: #363636;
+    font-size: 16px;
+    box-sizing: border-box;
+    text-align: center;
+}
+
+.discover-city{
+    width: 100%;
+    height: 100%;
+    padding: 60px 24px 18px 32%;
+    overflow: scroll;
+}
