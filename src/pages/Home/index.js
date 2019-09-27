@@ -2,13 +2,18 @@ import React, { Component } from "react"
 import Api from "../../api"
 import { Row, Col, Carousel, Icon } from 'antd';
 import './home.scss';
+import 'antd/dist/antd.css';
 import { connect } from "react-redux"
+import { relative } from "path";
 
+
+    
 class Home extends Component {
     state = {
         banner: [],
         hot_destination: [],
-
+        visible: false,
+        placement: 'bottom'
     }
     async componentDidMount() {
         /* 发送网络请求获取数据 */
@@ -21,24 +26,28 @@ class Home extends Component {
         // console.log(this.state.hot_destination)
         // console.log(this.state);
     }
+
+
     render() {
         /* 显示菜单栏 */
         let { dispatch } = this.props
         dispatch({ type: "show_menu" })
         let { banner, hot_destination } = this.state
-        console.log(hot_destination);
         return (
-            <div style={{ width: '100%', height: '100%', background: '#fff', }}>
+            <div style={{ width: '100%', background: '#fff', position: 'relative' }}>
                 {/* 顶部轮播图 */}
-                <div>
-                    <div className="icon-list search">
-                        <Icon type="search" style={{ fontSize: 24 }}></Icon>
-                        <span></span>
-                        {/* <Icon></Icon> */}
+                <div className="header-search">
+                    <div className="icon-list search-input" onClick={this.gotosearch}>
+                        <Icon type="search" className="icon-search" />
+                        <span>城市、景点、产品、关键字</span>
                     </div>
+                    <WingBlank>
+                        <Icon type="customer-service" className="icon-service" onClick={this.showActionSheet} />
+                    </WingBlank>
+                    
                 </div>
+                <Carousel autoplay style={{ height: '75vw' }}>
 
-                <Carousel style={{ height: '75vw' }}>
                     {
                         banner.map(item => {
                             return <a href="" style={{ height: '75vw' }}>
@@ -102,6 +111,7 @@ class Home extends Component {
                                 hot_destination.map(item => {
                                     return <div className="dest-hot-item">
                                         <img src={item.image} alt="" />
+                                        <h4>{item.title}</h4>
                                     </div>
 
                                 })
@@ -139,6 +149,7 @@ class Home extends Component {
                     </Row>
                 </div>
             </div >
+
         )
     }
 }
