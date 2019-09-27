@@ -6,33 +6,41 @@ import 'antd/dist/antd.css';
 import { connect } from "react-redux"
 import { relative } from "path";
 
-
-    
 class Home extends Component {
     state = {
         banner: [],
         hot_destination: [],
-        visible: false,
-        placement: 'bottom'
-    }
-    async componentDidMount() {
-        /* 发送网络请求获取数据 */
-        let { data } = await Api.get("/home", {});
-        this.setState({
-            banner: data[0].banner,
-            hot_destination: data[0].hot_destination
-        });
-        // console.log(this.state.banner);
-        // console.log(this.state.hot_destination)
-        // console.log(this.state);
+        goodlist: []
     }
 
+    async componentDidMount() {
+        /* 发送网络请求获取数据 */
+        let data1 = await Api.get("/home", {});
+        this.setState({
+            banner: data1.data[0].banner,
+            hot_destination: data1.data[0].hot_destination
+        });
+        // console.log(data1);
+        console.log(this.state.hot_destination)
+        console.log(this.state.banner);
+        let data2 = await Api.get("/goods", { page: 0 })
+        // console.log(data2)
+        this.setState({
+            goodlist: data2.data.slice(0, 2)
+        });
+        console.log(this.state.goodlist);
+    };
+
+
+    goto=()=>{
+        this.props.history.push('/list')
+    }
 
     render() {
         /* 显示菜单栏 */
         let { dispatch } = this.props
         dispatch({ type: "show_menu" })
-        let { banner, hot_destination } = this.state
+        let { banner, hot_destination, goodlist } = this.state
         return (
             <div style={{ width: '100%', background: '#fff', position: 'relative' }}>
                 {/* 顶部轮播图 */}
@@ -41,17 +49,14 @@ class Home extends Component {
                         <Icon type="search" className="icon-search" />
                         <span>城市、景点、产品、关键字</span>
                     </div>
-                    <WingBlank>
-                        <Icon type="customer-service" className="icon-service" onClick={this.showActionSheet} />
-                    </WingBlank>
-                    
+                    <Icon type="customer-service" className="icon-service" />
                 </div>
                 <Carousel autoplay style={{ height: '75vw' }}>
 
                     {
                         banner.map(item => {
-                            return <a href="" style={{ height: '75vw' }}>
-                                <img src={item.picture} alt="" key={item.id} style={{ width: '100%', height: '100%' }} />
+                            return <a href="" style={{ height: '75vw' }} key={item.id}>
+                                <img src={item.picture} alt="" style={{ width: '100%', height: '100%' }} />
                             </a>
                         })
                     }
@@ -109,7 +114,7 @@ class Home extends Component {
                         <div className="dest-hot-items">
                             {
                                 hot_destination.map(item => {
-                                    return <div className="dest-hot-item">
+                                    return <div className="dest-hot-item" onClick={this.goto}>
                                         <img src={item.image} alt="" />
                                         <h4>{item.title}</h4>
                                     </div>
@@ -131,21 +136,19 @@ class Home extends Component {
                         <h3>新品上线</h3>
                         <span>查看更多></span>
                     </div>
-                    <Row gutter={32}>
-                        <Col className="gutter-row" span={12}>
-                            <div className="gutter-box">
-                                <img src="" alt="" />
-                                <h4></h4>
-                                <p></p>
-                            </div>
-                        </Col>
-                        <Col className="gutter-row" span={12}>
-                            <div className="gutter-box">
-                                <img src="" alt="" />
-                                <h4></h4>
-                                <p></p>
-                            </div>
-                        </Col>
+                    <Row gutter={8}>
+                        {goodlist.map(item => {
+                            return <Col className="gutter-row" span={12} key={item.id}>
+                                <div className="gutter-box">
+                                    <img src={item.image} alt="" />
+                                    <h4>{item.name}</h4>
+                                    <div className="price-box">
+                                        <span className="price">￥{item.origin_price}</span>
+                                        <span>起</span>
+                                    </div>
+                                </div>
+                            </Col>
+                        })}
                     </Row>
                 </div>
             </div >
