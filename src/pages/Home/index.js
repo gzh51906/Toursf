@@ -131,12 +131,12 @@ class Home extends Component {
                 </div>
 
                 {/* 新品 */}
-                <div className="gutter-example new">
+                <div className="gutter-example new" onClick={this.goto}>
                     <div className="mode-title">
                         <h3>新品上线</h3>
                         <span>查看更多></span>
                     </div>
-                    <Row gutter={8}>
+                    <Row gutter={16}>
                         {goodlist.map(item => {
                             return <Col className="gutter-row" span={12} key={item.id}>
                                 <div className="gutter-box">
