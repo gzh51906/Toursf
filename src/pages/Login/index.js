@@ -61,7 +61,7 @@ class Login extends Component {
                 upwdHelp: ""
             });
         }
-        let { data } = await axios.post('http://139.9.138.168:8888/user/login', {
+        let data = await Api.post('/user/login', {
             phone: this.state.phone,
             password: this.state.password
         })
@@ -77,6 +77,9 @@ class Login extends Component {
             this.props.history.push('/reg')
         }
         // console.log("login:", data)
+        // }
+        // }
+
 
     }
     // componentDidMount() {
