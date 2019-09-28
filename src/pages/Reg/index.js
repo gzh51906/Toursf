@@ -6,6 +6,7 @@ import './reg.css'
 
 import axios from "axios"
 import { connect } from "react-redux"
+import Api from "../../api"
 
 
 class Reg extends Component {
@@ -66,20 +67,20 @@ class Reg extends Component {
         if (this.state.phone && (/^1[3|4|5|7|8][0-9]{9}$/.test(this.state.phone)) && this.state.password) {
             let {
                 data
-            } = await axios.get('http://139.9.138.168:8888/user/check', {
+            } = await Api.get('/user/check', {
                 params: {
                     phone: this.state.phone,
                     password: this.state.password
                 }
             })
-            console.log("666",data);
+            console.log("666", data);
             if (data.code === 1) {
                 alert("用户名已存在!");
-                this.props.history.push('/login')
+                // this.props.history.push('/login')
             } else {
                 let {
                     data
-                } = await axios.post('http://139.9.138.168:8888/user/reg', {
+                } = await Api.post('/user/reg', {
                     phone: this.state.phone,
                     password: this.state.password
                 })
