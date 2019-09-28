@@ -61,9 +61,7 @@ class Login extends Component {
                 upwdHelp: ""
             });
         }
-        let {
-            data
-        } = await Api.post('/user/login', {
+        let data = await Api.post('/user/login', {
             phone: this.state.phone,
             password: this.state.password
         })
@@ -75,7 +73,7 @@ class Login extends Component {
         } else {
             this.props.history.push('/reg')
         }
-        console.log("login:", data)
+        // console.log("login:", data)
         // }
         // }
 

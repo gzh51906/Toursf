@@ -13,19 +13,19 @@ class Cart extends Component {
     }
 
     componentDidMount() {
-        /*  let prev = 0;
-         let goods = this.props.goodslist
-         for (var i = 0; i < goods.length; i++) {
-             prev = goods[i].default_price * goods[i].qty * 7 + prev
-         }
-         console.log(prev) */
         this.getTotaprice()
+    }
+
+    componentDidUpdate() {
+        console.log("更新:", this.props.goodslist)
+
     }
 
     /* 计算总价 */
     getTotaprice() {
-        let prev = 0;
         let goods = this.props.goodslist
+        // console.log(goods)
+        let prev = 0;
         for (var i = 0; i < goods.length; i++) {
             if (goods[i].checked) {
                 prev = goods[i].default_price * goods[i].qty * 7 + prev
@@ -34,7 +34,6 @@ class Cart extends Component {
         this.setState({
             totalPrice: prev
         })
-        console.log(this.props.goodslist)
     }
 
     /* 返回上一级 */
@@ -94,6 +93,11 @@ class Cart extends Component {
     removeItem(id) {
         let { dispatch } = this.props
         dispatch({ type: "remove_cart", id })
+
+        console.log("删除", this.props.goodslist)
+        setTimeout(() => {
+            this.getTotaprice()
+        }, 10);
     }
 
     render() {
@@ -103,15 +107,15 @@ class Cart extends Component {
 
         /* 拿到store的商品数据 */
         let { goodslist } = this.props
-        // console.log(this.props)
 
         /* 拿到复选框状态 */
         let { allChecked, change } = this.state
+
         return (
             <div id='cart'>
                 <div className="header">
                     <Icon type="left" className="goback" onClick={this.gotoback.bind(this)} />
-                    <div className="title">
+                    <div className="top-title">
                         购物车
                     </div>
                     <span className="change" onClick={this.onChange.bind(this)}>{change ? "编辑" : "完成"}</span>
@@ -131,9 +135,11 @@ class Cart extends Component {
                                     </div>
                                     <div className="right">
                                         <div className="info">
-                                            <img src={item.image} />
+                                            <div className="item-img">
+                                                <img src={item.image} />
+                                            </div>
                                             <div className="info_ri">
-                                                <div className="name">{item.name}</div>
+                                                <div className="item-name">{item.name}</div>
                                                 <InputNumber
                                                     min={1}
                                                     // value={item.qty}
@@ -157,7 +163,12 @@ class Cart extends Component {
                     </div>
                     <div className="totaprice">
                         <span className="tota">合计：</span>
-                        <span className="price">￥{this.state.totalPrice.toFixed(2)}</span>
+                        <span className="price">￥{
+                            this.state.totalPrice.toFixed(2)
+                            // goodslist.map(item => {
+                            //     item.default_price * item.qty * 7
+                            // })
+                        }</span>
                     </div>
                     <button className="buy">
                         <p>立即订购</p>
@@ -177,7 +188,7 @@ let mapStateToProps = (state) => {
         showMenu: state.common.showMenu,
         goodslist: state.cart.goodslist,
         // totalPrice: state.cart.goodslist.reduce((prev, item) => prev + item.default_price * 7 * item.qty, 0)
-        totalPrice: state.cart.totalPrice
+        // totalPrice: state.cart.totalPrice
     }
 }
 

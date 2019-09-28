@@ -189,10 +189,11 @@
   color: #fff;
 }
 
-#goods .footer .buy p {
+#goods .footer .buy .dg {
   font-size: 18.5px;
+  margin-bottom: 0;
 }
 
-#goods .footer .buy span {
+#goods .footer .buy .sen {
   font-size: 12px;
 }

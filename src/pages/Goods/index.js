@@ -101,8 +101,8 @@ class Goods extends Component {
                     </div>
                     <button className="cart" onClick={this.addtoCart.bind(this)}>加入购物车</button>
                     <button className="buy">
-                        <p>立即订购</p>
-                        <span>(2人起订)</span>
+                        <p className="dg">立即订购</p>
+                        <span className="sen">(2人起订)</span>
                     </button>
                 </div>
             </div>
