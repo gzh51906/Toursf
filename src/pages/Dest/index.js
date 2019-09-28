@@ -62,8 +62,8 @@ class Dest extends Component {
 
                                 textAlign: 'center'
                             }
-                        }>
-                            <h1>美国</h1>
+                        } onClick={this.gotoback.bind(this, '/search')}>
+                            <h1 >美国</h1>
                             <Icon type="check-circle" theme="filled" style={
                                 {
                                     position: 'absolute',

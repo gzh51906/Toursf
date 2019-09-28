@@ -61,12 +61,13 @@ class Login extends Component {
                 upwdHelp: ""
             });
         }
-        let {
-            data
-        } = await Api.post('/user/login', {
+        let { data } = await axios.post('http://139.9.138.168:8888/user/login', {
             phone: this.state.phone,
             password: this.state.password
         })
+
+        // console.log(data);
+
         if (data.code === 1) {
             alert("登录成功!");
 
@@ -75,10 +76,7 @@ class Login extends Component {
         } else {
             this.props.history.push('/reg')
         }
-        console.log("login:", data)
-        // }
-        // }
-
+        // console.log("login:", data)
 
     }
     // componentDidMount() {
