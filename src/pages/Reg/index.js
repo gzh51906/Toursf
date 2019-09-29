@@ -65,9 +65,7 @@ class Reg extends Component {
         }
 
         if (this.state.phone && (/^1[3|4|5|7|8][0-9]{9}$/.test(this.state.phone)) && this.state.password) {
-            let {
-                data
-            } = await Api.get('/user/check', {
+            let { data } = await axios.get('http://139.9.138.168:8888/user/check', {
                 params: {
                     phone: this.state.phone,
                     password: this.state.password

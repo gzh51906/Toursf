@@ -68,7 +68,7 @@
   height: 21.3vw;
 }
 
-#search .search_img:nth-child(3n+1) {
+#search .search_img:nth-child(3n+2) {
   margin: 0;
 }
 
@@ -92,7 +92,7 @@
   padding: 6px 2px;
 }
 
-#search .stateHot:nth-child(3n+2) {
+#search .stateHot:nth-child(3n+3) {
   margin: 0;
 }
 

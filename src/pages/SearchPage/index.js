@@ -2,10 +2,11 @@ import React, { Component } from "react"
 import Api from "../../api"
 import axios from "axios"
 import { connect } from "react-redux"
-import "./search.scss"
+import "./searchpage.scss"
 
 
 import { Tabs, Select, Icon } from 'antd';
+import Item from "antd/lib/list/Item"
 
 const { TabPane } = Tabs;
 const { Option } = Select;
@@ -13,6 +14,7 @@ class Search extends Component {
     state = {
         tabPosition: 'left',
         td: [],
+
     }
     async componentDidMount() {
         let { data } = await Api.get("/search", {})
@@ -20,8 +22,9 @@ class Search extends Component {
         this.setState({
             td: data
         })
-
+        entListener('scroll', this.handleScroll);
     }
+
     gotoback(path) {
         this.props.history.push(path)
     }
@@ -34,15 +37,21 @@ class Search extends Component {
         let { dispatch } = this.props
         dispatch({ type: "hide_menu" })
         return (
-            <div id="search">
-                <div className='search_top' >
-                    <span className='icon-r' onClick={this.gotoback.bind(this, '/dest')}><Icon type="left" /></span>
-                    <div className="icon-list search-input" >
-                        <Icon type="search" className="icon-search" />
-                        <span onClick={this.gotoback.bind(this, '/searchpage')}>城市、景点、产品、关键字</span>
+            <div id="searchpage">
+                <div className='searchpage_top'>
+                    <div className="icon-list searchpage-input" >
+                        <Icon type="search" className="icon-searchpage" />
+                        <span><input type="text" placeholder="城市、景点、产品、关键字" /></span>
+
                     </div>
+                    <div className="searchpage_ka" onClick={this.gotoback.bind(this, '/dest')}>取消</div>
                 </div>
-                <div className='search_bottom'>
+                <div className="din" style={{ width: "100%" }}>
+                    <h2>周边定位</h2>
+                    <div>广州</div>
+
+                </div>
+                <div className='searchpage_bottom'>
                     <Tabs tabPosition={this.state.tabPosition}
                         type='card'
                         tabBarGutter={0}>
@@ -58,7 +67,7 @@ class Search extends Component {
                                                 return (
                                                     // 右边内容上半部分
                                                     <React.Fragment key={it.name} >
-                                                        <div className="search_img">
+                                                        <div className="searchpage_img">
                                                             <div><img src={it.image_url} /></div>
                                                             <div key={i} className='hot'>{it.name}</div>
                                                         </div>
@@ -85,6 +94,7 @@ class Search extends Component {
 
                                         }
                                     </TabPane>
+
                                 )
                             })
                         }

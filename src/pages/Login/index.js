@@ -61,7 +61,7 @@ class Login extends Component {
                 upwdHelp: ""
             });
         }
-        let { data } = await Api.post('/user/login', {
+        let data = await Api.post('/user/login', {
             phone: this.state.phone,
             password: this.state.password
         })

@@ -103,7 +103,7 @@ class Cart extends Component {
     render() {
         /* 隐藏菜单栏 */
         let { dispatch } = this.props
-        dispatch({ type: "hide_menu" })
+        dispatch({ type: "show_menu" })
 
         /* 拿到store的商品数据 */
         let { goodslist } = this.props
