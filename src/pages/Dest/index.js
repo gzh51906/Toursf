@@ -51,7 +51,8 @@ class Dest extends Component {
                         top: 15,
                         right: 15,
                         zIndex: 10
-                    }} />
+
+                    }} onClick={this.gotoback.bind(this, '/searchpage')} />
                     <img src="//cdn.tff.bz/f2/59/5f/美国2.jpg?imageView2/1/w/1125/h/1200/q/85/format/jpg" alt="" />
                     <div className='dest_t'>
                         <div style={

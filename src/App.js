@@ -24,6 +24,7 @@ import Cart from './pages/Cart'
 import Goods from "./pages/Goods"
 import Customer from "./pages/Customer"
 import DestMore from "./pages/DestMore"
+import SearchPage from './pages/SearchPage'
 
 import Search from "./pages/Search"
 import List from "./pages/List"
@@ -35,7 +36,7 @@ class App extends Component {
             { path: "/home", text: "首页", name: "home", bgpositon: { backgroundPositionX: -40, backgroundPositionY: -144 }, bgactive: { backgroundPositionX: 0, backgroundPositionY: -144 } },
             { path: "/dest", text: "目的地", name: "dest", bgpositon: { backgroundPositionX: -120, backgroundPositionY: -144 }, bgactive: { backgroundPositionX: -80, backgroundPositionY: -144 } },
             { path: "/discover", text: "发现", name: "discover", bgpositon: { backgroundPositionX: -200, backgroundPositionY: -144 }, bgactive: { backgroundPositionX: -160, backgroundPositionY: -144 } },
-            { path: "/order", text: "订单", name: "order", bgpositon: { backgroundPositionX: -280, backgroundPositionY: -144 }, bgactive: { backgroundPositionX: -240, backgroundPositionY: -144 } },
+            { path: "/cart", text: "订单", name: "cart", bgpositon: { backgroundPositionX: -280, backgroundPositionY: -144 }, bgactive: { backgroundPositionX: -240, backgroundPositionY: -144 } },
             { path: "/mine", text: "我的", name: "mine", bgpositon: { backgroundPositionX: -360, backgroundPositionY: -144 }, bgactive: { backgroundPositionX: -320, backgroundPositionY: -144 } },
         ]
     }
@@ -76,6 +77,7 @@ class App extends Component {
                         <Route path="/reg" component={Reg} />
                         {/* 购物车 */}
 
+                        <Route path="/searchpage" component={SearchPage} />
 
                         <Route path="/search" component={Search} />
                         <Route path="/list" component={List} />
