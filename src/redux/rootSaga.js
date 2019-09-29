@@ -18,6 +18,16 @@ function* getStore({ type, goods_id, qty }) {
     yield put(changeQty(goods_id, qty))
 }
 
+// function* login(){
+//     api.f()
+
+//     ifcode==1{
+//         window.localStorage.setItem()
+
+//     }else{
+
+//     }
+// }
 function* rootSaga() {
     yield takeLatest("HELLO_SAGA", helloSaga)
     yield takeLatest("CHANGE_QTY_ASYNC", getStore)

@@ -25,6 +25,8 @@ import Goods from "./pages/Goods"
 import Customer from "./pages/Customer"
 import DestMore from "./pages/DestMore"
 import SearchPage from './pages/SearchPage'
+import Setting from './pages/Setting'
+
 
 import Search from "./pages/Search"
 import List from "./pages/List"
@@ -68,6 +70,7 @@ class App extends Component {
 
                         <Route path="/destmore" component={DestMore} />
 
+                        <Route path="/setting" component={Setting}/>
                         {/* 动态路由 */}
                         <Route path="/goods/:id" component={Goods} />
 

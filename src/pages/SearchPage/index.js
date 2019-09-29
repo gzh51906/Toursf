@@ -7,6 +7,7 @@ import "./searchpage.scss"
 
 import { Tabs, Select, Icon } from 'antd';
 import Item from "antd/lib/list/Item"
+      
 
 const { TabPane } = Tabs;
 const { Option } = Select;
@@ -22,12 +23,14 @@ class Search extends Component {
         this.setState({
             td: data
         })
-        entListener('scroll', this.handleScroll);
+        // entListener('scroll', this.handleScroll);
     }
 
-    gotoback(path) {
-        this.props.history.push(path)
+    /* 返回上一级 */
+    gotoback() {
+        this.props.history.goBack()
     }
+
 
     changeTabPosition = tabPosition => {
         this.setState({ tabPosition });
@@ -44,7 +47,7 @@ class Search extends Component {
                         <span><input type="text" placeholder="城市、景点、产品、关键字" /></span>
 
                     </div>
-                    <div className="searchpage_ka" onClick={this.gotoback.bind(this, '/dest')}>取消</div>
+                    <div className="searchpage_ka" onClick={this.gotoback.bind(this)}>取消</div>
                 </div>
                 <div className="din" style={{ width: "100%" }}>
                     <h2>周边定位</h2>
