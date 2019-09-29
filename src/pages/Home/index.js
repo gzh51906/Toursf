@@ -66,35 +66,35 @@ class Home extends Component {
                 <div className="gutter-example nav-box">
                     <Row gutter={16}>
                         <Col className="gutter-row" span={6}>
-                            <div className="gutter-box class-img"></div>
+                            <div className="gutter-box class-img" onClick={this.goto} style={{backgroundPosition: "-144px -72px"}} ></div >
                             <h4>途风精品</h4>
                         </Col>
                         <Col className="gutter-row" span={6}>
-                            <div className="gutter-box class-img"></div>
+                            <div className="gutter-box class-img" onClick={this.goto} style={{backgroundPosition: "0 -72px"}}></div>
                             <h4>多日游</h4>
                         </Col>
                         <Col className="gutter-row" span={6}>
-                            <div className="gutter-box class-img"></div>
+                            <div className="gutter-box class-img"  onClick={this.goto} style={{backgroundPosition: "-72px 0"}}></div>
                             <h4>一日游</h4>
                         </Col>
                         <Col className="gutter-row" span={6}>
-                            <div className="gutter-box class-img"></div>
+                            <div className="gutter-box class-img" style={{backgroundPosition: "background-position: -144px 0"}}></div>
                             <h4>定制旅行</h4>
                         </Col>
                         <Col className="gutter-row" span={6}>
-                            <div className="gutter-box class-img"></div>
+                            <div className="gutter-box class-img"  onClick={this.goto} style={{backgroundPosition: "-216px 0"}}></div>
                             <h4>邮轮游</h4>
                         </Col>
                         <Col className="gutter-row" span={6}>
-                            <div className="gutter-box class-img"></div>
+                            <div className="gutter-box class-img" onClick={this.goto} style={{backgroundPosition: "-72px -72px"}}></div>
                             <h4>票务</h4>
                         </Col>
                         <Col className="gutter-row" span={6}>
-                            <div className="gutter-box class-img"></div>
+                            <div className="gutter-box class-img" onClick={this.goto} ></div>
                             <h4>签证</h4>
                         </Col>
                         <Col className="gutter-row" span={6}>
-                            <div className="gutter-box class-img"></div>
+                            <div className="gutter-box class-img"  onClick={this.goto} style={{backgroundPosition: "-216px -72px"}}></div>
                             <h4>接送</h4>
                         </Col>
                     </Row>
