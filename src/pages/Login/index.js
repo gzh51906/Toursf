@@ -65,29 +65,34 @@ class Login extends Component {
             phone: this.state.phone,
             password: this.state.password
         })
-
-        console.log(data);
+        // console.log(data);
 
         if (data.code === 1) {
-            alert("登录成功!");
+            // console.log(data.data.authorization);
 
+            alert("登录成功!");
+            localStorage.setItem('token', data.data.authorization)
             // replace登录成功不能回退
             this.props.history.replace('/mine')
         } else {
             alert("用户不存在")
             this.props.history.push('/reg')
         }
-        console.log("login:", data)
+        // console.log("login:", data)
+
 
     }
+
     // componentDidMount() {
+
     //     console.log(this.props);
     // }
 
     islogin = () => {
         dispatch({
             type: 'login',
-            payload: this.state.phone
+            payload: this.state.phone,
+
         })
     }
 
@@ -149,7 +154,13 @@ let mapStateToProps = (state) => {
         login: state.phone
     }
 }
+let mapDispatchToProps = (dispatch) => {
+    // 在这里获取组件state, redux中的state
+    return {
+        dispatch
+    }
+}
 
-Login = connect(mapStateToProps)(Login)
+Login = connect(mapStateToProps, mapDispatchToProps)(Login)
 
 export default Login;

@@ -55,10 +55,10 @@ class Mine extends Component {
 
             }, {
                 key: '7',
-                path: '/cart',
+                path: '/setting',
                 text: '设置',
                 icon: 'setting',
-                name: 'cart'
+                name: 'setting'
 
             }
         ]
@@ -66,7 +66,6 @@ class Mine extends Component {
 
     componentDidMount() {
         console.log(this.props);
-
 
     }
 
@@ -77,7 +76,7 @@ class Mine extends Component {
 
     }
     change = (path, el) => {
-        console.log(path, el, 111);
+        // console.log(path, el, 111);
         this.goto(path)
     }
     login = () => {
@@ -89,9 +88,14 @@ class Mine extends Component {
         dispatch({ type: "show_menu" })
         return (
             <div className='boxs'>
-                <div className='portrait' onClick={this.login}>
+                <div className='portrait'>
                     <img src="https://avatars2.githubusercontent.com/u/52444450?s=460&v=4" alt="" className='imgs' />
-                    <div className='name'>登录/注册</div>
+                    {
+                        localStorage.getItem('token') === null ?
+                            <div className='name' onClick={this.login}>登录/注册</div> :
+                            <div className='name'>尊敬的会员</div>
+                    }
+
                 </div>
                 <div className='list'>
                     <div className='list_p'>
@@ -136,6 +140,7 @@ class Mine extends Component {
 let mapStateToProps = (state) => {
     return {
         showMenu: state.common.showMenu,
+        login: state.common.login
     }
 }
 

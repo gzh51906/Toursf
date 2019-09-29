@@ -21,20 +21,24 @@ class Home extends Component {
             hot_destination: data1.data[0].hot_destination
         });
         // console.log(data1);
-        console.log(this.state.hot_destination)
-        console.log(this.state.banner);
+        // console.log(this.state.hot_destination)
+        // console.log(this.state.banner);
         let data2 = await Api.get("/goods", { page: 0 })
         // console.log(data2)
         this.setState({
             goodlist: data2.data.slice(0, 2)
         });
-        console.log(this.state.goodlist);
+        // console.log(this.state.goodlist);
     };
-
-
-    goto=()=>{
-        this.props.history.push('/list')
+    gotos(id) {
+        this.props.history.push(`/goods/${id}`)
     }
+
+    goto=(path)=>{
+        this.props.history.push(path)
+    }
+
+    
 
     render() {
         /* 显示菜单栏 */
@@ -45,7 +49,7 @@ class Home extends Component {
             <div style={{ width: '100%', background: '#fff', position: 'relative' }}>
                 {/* 顶部轮播图 */}
                 <div className="header-search">
-                    <div className="icon-list search-input" onClick={this.gotosearch}>
+                    <div className="icon-list search-input" onClick={this.goto.bind(this,'/searchpage')}>
                         <Icon type="search" className="icon-search" />
                         <span>城市、景点、产品、关键字</span>
                     </div>
@@ -114,7 +118,7 @@ class Home extends Component {
                         <div className="dest-hot-items">
                             {
                                 hot_destination.map(item => {
-                                    return <div className="dest-hot-item" onClick={this.goto}>
+                                    return <div className="dest-hot-item" onClick={this.goto.bind(this,'/list')} key={item.title}>
                                         <img src={item.image} alt="" />
                                         <h4>{item.title}</h4>
                                     </div>
@@ -131,15 +135,15 @@ class Home extends Component {
                 </div>
 
                 {/* 新品 */}
-                <div className="gutter-example new" onClick={this.goto}>
+                <div className="gutter-example new" >
                     <div className="mode-title">
                         <h3>新品上线</h3>
                         <span>查看更多></span>
                     </div>
                     <Row gutter={16}>
                         {goodlist.map(item => {
-                            return <Col className="gutter-row" span={12} key={item.id}>
-                                <div className="gutter-box">
+                            return <Col className="gutter-row" span={12} key={item.id}  onClick={this.gotos.bind(this, item.id)}>
+                                <div className="gutter-box" key={item.id}>
                                     <img src={item.image} alt="" />
                                     <h4>{item.name}</h4>
                                     <div className="price-box">
