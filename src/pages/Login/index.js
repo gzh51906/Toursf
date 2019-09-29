@@ -7,8 +7,6 @@ import { connect } from "react-redux"
 import { Icon, Button } from 'antd';
 import './login.css'
 
-import axios from "axios"
-
 import Api from "../../api"
 
 class Login extends Component {
@@ -24,6 +22,9 @@ class Login extends Component {
         }
     }
 
+    componentDidMount() {
+        console.log(this.props.userInfo)
+    }
 
     //监听input中的数据，保存到state中
     changeUsername(e) {
@@ -31,7 +32,6 @@ class Login extends Component {
         this.setState({
             phone
         });
-        // console.log(this.state.userName);
     }
 
     changePassword(e) {
@@ -66,34 +66,25 @@ class Login extends Component {
             password: this.state.password
         })
 
-        // console.log(data);
+        let { dispatch } = this.props
 
         if (data.code === 1) {
             alert("登录成功!");
-
+            dispatch({ type: "login", userInfo: { phone: this.state.phone } })
             // replace登录成功不能回退
             this.props.history.replace('/mine')
         } else {
             this.props.history.push('/reg')
         }
-        // console.log("login:", data)
-        // }
-        // }
-
-
-    }
-    // componentDidMount() {
-    //     console.log(this.props);
-    // }
-
-    islogin = () => {
-        dispatch({
-            type: 'login',
-            payload: this.state.phone
-        })
     }
 
-    // ---------
+    /*     islogin = () => {
+            dispatch({
+                type: 'login',
+                payload: this.state.phone
+            })
+        }
+     */
 
     goto = () => {
         this.props.history.push('/reg')
@@ -148,7 +139,7 @@ class Login extends Component {
 let mapStateToProps = (state) => {
     return {
         showMenu: state.common.showMenu,
-        login: state.phone
+        userInfo: state.common.userInfo
     }
 }
 

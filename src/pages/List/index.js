@@ -14,7 +14,8 @@ class List extends Component {
         goods: [],
         page: 0,
         num: 1,
-        top: "none"
+        top: "none",
+        times: []
     }
     async componentDidMount() {
         let page = await Api.get("/goods/page", {})
@@ -42,9 +43,7 @@ class List extends Component {
                 top: "none"
             })
         )
-        // console.log(d._container.scrollHeight, d._container.clientHeight, Math.ceil(d._container.scrollTop))
-        // let talk = d._container.scrollHeight - d._container.clientHeight - Math.ceil(d._container.scrollTop)
-        // console.log(Math.round(d._container.scrollTop + d._container.clientHeight), d._container.scrollHeight)
+
         /* 监听页面滚动发送网络请求 */
         if (Math.round(d._container.scrollTop + d._container.clientHeight) >= d._container.scrollHeight) {
             this.getDatalist()
@@ -53,17 +52,23 @@ class List extends Component {
 
     /* 懒加载=>发送网络请求 */
     async getDatalist() {
-        let { num } = this.state
-        // console.log(num)
-        let { data } = await Api.get("/goods", { page: num })
-        let goods = this.state.goods
-        data.forEach(item => {
-            goods.push(item)
-        });
-        this.setState({
-            goods: goods,
-            num: num + 1
-        })
+        let times = this.state.times;
+
+        let { num } = this.state;
+        // console.log(num, this.state.page)
+        if (times.indexOf(num) == -1 && num < this.state.page - 1) {
+            times.push(num)
+            // console.log(num)
+            let { data } = await Api.get("/goods", { page: num })
+            let goods = this.state.goods
+            data.forEach(item => {
+                goods.push(item)
+            });
+            this.setState({
+                goods: goods,
+                num: num + 1
+            })
+        }
         // console.log(this.state.goods)
     }
 

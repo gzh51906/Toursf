@@ -17,7 +17,7 @@ class Cart extends Component {
     }
 
     componentDidUpdate() {
-        console.log("更新:", this.props.goodslist)
+        // console.log("更新:", this.props.goodslist)
 
     }
 
@@ -94,7 +94,7 @@ class Cart extends Component {
         let { dispatch } = this.props
         dispatch({ type: "remove_cart", id })
 
-        console.log("删除", this.props.goodslist)
+        // console.log("删除", this.props.goodslist)
         setTimeout(() => {
             this.getTotaprice()
         }, 10);
