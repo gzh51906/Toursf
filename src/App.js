@@ -2,7 +2,6 @@ import React, { Component } from "react"
 
 /* 路由 */
 import { Route, Redirect, Switch, withRouter } from "react-router-dom"
-
 /* UI框架 */
 import { Menu } from 'antd';
 
@@ -54,6 +53,7 @@ class App extends Component {
     componentDidMount() {
         // console.log(this.props)
     }
+
     render() {
         return (
             <>

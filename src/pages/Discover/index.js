@@ -4,6 +4,7 @@ import Api from "../../api"
 import "./discover.scss";
 import { Tabs } from 'antd';
 
+
 const { TabPane } = Tabs;
 class Discover extends Component {
     constructor(props) {
@@ -25,6 +26,8 @@ class Discover extends Component {
         this.props.history.push('/list')
     }
     render() {
+        let { dispatch } = this.props
+        dispatch({ type: "show_menu" })
         return <div className="bigbox" style={{width:'100%',height:'100%',background:'#fff' }}>
             <div className="title">
                <h4 >发现</h4>

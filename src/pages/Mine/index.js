@@ -89,14 +89,6 @@ class Mine extends Component {
             <div className='boxs'>
                 <div className='portrait'>
                     <img src="https://avatars2.githubusercontent.com/u/52444450?s=460&v=4" alt="" className='imgs' />
-                    <div className='name'>
-                        {
-                            this.props.userInfo.phone
-                                ?
-                                this.props.userInfo.phone
-                                : "登录/注册"
-                        }
-                    </div>
                     {
                         localStorage.getItem('token') === null ?
                             <div className='name' onClick={this.login}>登录/注册</div> :
@@ -147,7 +139,7 @@ class Mine extends Component {
 let mapStateToProps = (state) => {
     return {
         showMenu: state.common.showMenu,
-        userInfo: state.common.userInfo
+        userInfo: state.common.userInfo,
         login: state.common.login
     }
 }
