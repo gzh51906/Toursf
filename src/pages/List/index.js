@@ -86,6 +86,7 @@ class List extends Component {
         /* 隐藏菜单栏 */
         let { dispatch } = this.props
         dispatch({ type: "hide_menu" })
+        // console.log(this.props)
         let { goods, top } = this.state
         return (
             <div id="list">

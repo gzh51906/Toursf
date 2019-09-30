@@ -18,7 +18,7 @@ class Discover extends Component {
         let { data } = await Api.get('/search/discover', {});
         this.setState({
             arealist: data
-        });console.log(this.state.arealist);
+        });
     };
     goto=()=>{
         this.props.history.push('/list')
@@ -35,7 +35,7 @@ class Discover extends Component {
                     discover-city">
                         {
                             item.children.map(it => {
-                                return <a href=" javascript: void ( 0 );" className="discover-city-item" onClick={this.goto}>{it.name}</a>
+                                return <p key={it.name}className="discover-city-item" onClick={this.goto}>{it.name}</p>
                             })
                         }
                     </TabPane>

@@ -21,18 +21,18 @@ class Home extends Component {
             hot_destination: data1.data[0].hot_destination
         });
         // console.log(data1);
-        console.log(this.state.hot_destination)
-        console.log(this.state.banner);
+        // console.log(this.state.hot_destination)
+        // console.log(this.state.banner);
         let data2 = await Api.get("/goods", { page: 0 })
         // console.log(data2)
         this.setState({
             goodlist: data2.data.slice(0, 2)
         });
-        console.log(this.state.goodlist);
+        // console.log(this.state.goodlist);
     };
 
 
-    goto=()=>{
+    goto = () => {
         this.props.history.push('/list')
     }
 
@@ -114,7 +114,7 @@ class Home extends Component {
                         <div className="dest-hot-items">
                             {
                                 hot_destination.map(item => {
-                                    return <div className="dest-hot-item" onClick={this.goto}>
+                                    return <div className="dest-hot-item" onClick={this.goto} key={item.id}>
                                         <img src={item.image} alt="" />
                                         <h4>{item.title}</h4>
                                     </div>
