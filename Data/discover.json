@@ -1,0 +1,734 @@
+ [{
+         "cid": 51,
+         "name": "美国东海岸",
+         "children": [{
+                 "cid": 52,
+                 "name": "纽约",
+                 "parent_id": 51
+             },
+             {
+                 "cid": 54,
+                 "name": "华盛顿",
+                 "parent_id": 51
+             },
+             {
+                 "cid": 56,
+                 "name": "费城",
+                 "parent_id": 51
+             },
+             {
+                 "cid": 58,
+                 "name": "波士顿",
+                 "parent_id": 51
+             },
+             {
+                 "cid": 60,
+                 "name": "迈阿密",
+                 "parent_id": 51
+             },
+             {
+                 "cid": 62,
+                 "name": "芝加哥",
+                 "parent_id": 51
+             },
+             {
+                 "cid": 64,
+                 "name": "奥兰多",
+                 "parent_id": 51
+             },
+             {
+                 "cid": 68,
+                 "name": "尼亚加拉瀑布",
+                 "parent_id": 51
+             },
+             {
+                 "cid": 69,
+                 "name": "休斯顿",
+                 "parent_id": 51
+             },
+             {
+                 "cid": 79,
+                 "name": "亚特兰大",
+                 "parent_id": 51
+             }
+         ]
+     },
+     {
+         "cid": 1,
+         "name": "美国西海岸",
+         "children": [{
+                 "cid": 4,
+                 "name": "洛杉矶",
+                 "parent_id": 1
+             },
+             {
+                 "cid": 5,
+                 "name": "黄石公园",
+                 "parent_id": 1
+             },
+             {
+                 "cid": 7,
+                 "name": "旧金山",
+                 "parent_id": 1
+             },
+             {
+                 "cid": 8,
+                 "name": "拉斯维加斯",
+                 "parent_id": 1
+             },
+             {
+                 "cid": 9,
+                 "name": "大峡谷",
+                 "parent_id": 1
+             },
+             {
+                 "cid": 10,
+                 "name": "圣地亚哥",
+                 "parent_id": 1
+             },
+             {
+                 "cid": 11,
+                 "name": "优胜美地国家公园",
+                 "parent_id": 1
+             },
+             {
+                 "cid": 21,
+                 "name": "环球影视城",
+                 "parent_id": 1
+             },
+             {
+                 "cid": 22,
+                 "name": "主题乐园",
+                 "parent_id": 1
+             },
+             {
+                 "cid": 32,
+                 "name": "丹佛",
+                 "parent_id": 1
+             },
+             {
+                 "cid": 33,
+                 "name": "盐湖城",
+                 "parent_id": 1
+             },
+             {
+                 "cid": 34,
+                 "name": "西雅图",
+                 "parent_id": 1
+             },
+             {
+                 "cid": 77,
+                 "name": "总统山国家公园",
+                 "parent_id": 1
+             },
+             {
+                 "cid": 825,
+                 "name": "阿拉斯加",
+                 "parent_id": 1
+             },
+             {
+                 "cid": 828,
+                 "name": "西南巨环",
+                 "parent_id": 1
+             }
+         ]
+     },
+     {
+         "cid": 984,
+         "name": "佛罗里达州",
+         "children": [{
+             "cid": 13,
+             "name": "佛罗里达",
+             "parent_id": 984
+         }]
+     },
+     {
+         "cid": 12,
+         "name": "夏威夷州",
+         "children": [{
+             "cid": 66,
+             "name": "夏威夷旅游",
+             "parent_id": 12
+         }]
+     },
+     {
+         "cid": 78,
+         "name": "美国其他目的地",
+         "children": [{
+                 "cid": 41,
+                 "name": "美国旅游Tips",
+                 "parent_id": 78
+             },
+             {
+                 "cid": 42,
+                 "name": "境外旅游Tips",
+                 "parent_id": 78
+             },
+             {
+                 "cid": 81,
+                 "name": "塞班岛旅游",
+                 "parent_id": 78
+             },
+             {
+                 "cid": 1005,
+                 "name": "迪斯尼乐园",
+                 "parent_id": 78
+             },
+             {
+                 "cid": 1134,
+                 "name": "哈佛大学",
+                 "parent_id": 78
+             },
+             {
+                 "cid": 1887,
+                 "name": "西沃德",
+                 "parent_id": 78
+             },
+             {
+                 "cid": 2385,
+                 "name": "卡特琳娜岛",
+                 "parent_id": 78
+             },
+             {
+                 "cid": 3171,
+                 "name": "圣乔治",
+                 "parent_id": 78
+             },
+             {
+                 "cid": 3495,
+                 "name": "黑山",
+                 "parent_id": 78
+             },
+             {
+                 "cid": 9885,
+                 "name": "加州迪士尼乐园",
+                 "parent_id": 78
+             },
+             {
+                 "cid": 9903,
+                 "name": "德克萨斯",
+                 "parent_id": 78
+             }
+         ]
+     },
+     {
+         "cid": 3,
+         "name": "加拿大",
+         "children": [{
+                 "cid": 14,
+                 "name": "温哥华",
+                 "parent_id": 3
+             },
+             {
+                 "cid": 15,
+                 "name": "渥太华",
+                 "parent_id": 3
+             },
+             {
+                 "cid": 16,
+                 "name": "多伦多",
+                 "parent_id": 3
+             },
+             {
+                 "cid": 17,
+                 "name": "落基山",
+                 "parent_id": 3
+             },
+             {
+                 "cid": 25,
+                 "name": "加拿大",
+                 "parent_id": 3
+             },
+             {
+                 "cid": 85,
+                 "name": "蒙特利尔",
+                 "parent_id": 3
+             },
+             {
+                 "cid": 87,
+                 "name": "魁北克",
+                 "parent_id": 3
+             },
+             {
+                 "cid": 89,
+                 "name": "维多利亚",
+                 "parent_id": 3
+             },
+             {
+                 "cid": 109,
+                 "name": "加拿大国家公园",
+                 "parent_id": 3
+             },
+             {
+                 "cid": 110,
+                 "name": "加拿大特色旅游",
+                 "parent_id": 3
+             },
+             {
+                 "cid": 6120,
+                 "name": "尼亚加拉瀑布市",
+                 "parent_id": 3
+             },
+             {
+                 "cid": 6141,
+                 "name": "黄刀镇",
+                 "parent_id": 3
+             },
+             {
+                 "cid": 6312,
+                 "name": "尼亚加拉断崖",
+                 "parent_id": 3
+             },
+             {
+                 "cid": 6330,
+                 "name": "加拿大瀑布后之旅",
+                 "parent_id": 3
+             }
+         ]
+     },
+     {
+         "cid": 36,
+         "name": "拉丁美洲",
+         "children": [{
+                 "cid": 135,
+                 "name": "墨西哥",
+                 "parent_id": 36
+             },
+             {
+                 "cid": 138,
+                 "name": "巴西",
+                 "parent_id": 36
+             },
+             {
+                 "cid": 141,
+                 "name": "阿根廷",
+                 "parent_id": 36
+             },
+             {
+                 "cid": 9912,
+                 "name": "巴拿马",
+                 "parent_id": 36
+             },
+             {
+                 "cid": 9927,
+                 "name": "厄瓜多尔",
+                 "parent_id": 36
+             },
+             {
+                 "cid": 9939,
+                 "name": "哥伦比亚",
+                 "parent_id": 36
+             },
+             {
+                 "cid": 9942,
+                 "name": "哥斯达黎加",
+                 "parent_id": 36
+             },
+             {
+                 "cid": 9951,
+                 "name": "秘鲁",
+                 "parent_id": 36
+             },
+             {
+                 "cid": 9978,
+                 "name": "智利",
+                 "parent_id": 36
+             },
+             {
+                 "cid": 9981,
+                 "name": "古巴",
+                 "parent_id": 36
+             }
+         ]
+     },
+     {
+         "cid": 37,
+         "name": "欧洲",
+         "children": [{
+                 "cid": 91,
+                 "name": "英国",
+                 "parent_id": 37
+             },
+             {
+                 "cid": 93,
+                 "name": "法国",
+                 "parent_id": 37
+             },
+             {
+                 "cid": 95,
+                 "name": "德国",
+                 "parent_id": 37
+             },
+             {
+                 "cid": 97,
+                 "name": "比利时",
+                 "parent_id": 37
+             },
+             {
+                 "cid": 99,
+                 "name": "奥地利",
+                 "parent_id": 37
+             },
+             {
+                 "cid": 101,
+                 "name": "意大利",
+                 "parent_id": 37
+             },
+             {
+                 "cid": 103,
+                 "name": "瑞士",
+                 "parent_id": 37
+             },
+             {
+                 "cid": 105,
+                 "name": "匈牙利",
+                 "parent_id": 37
+             },
+             {
+                 "cid": 107,
+                 "name": "卢森堡",
+                 "parent_id": 37
+             },
+             {
+                 "cid": 723,
+                 "name": "荷兰",
+                 "parent_id": 37
+             },
+             {
+                 "cid": 735,
+                 "name": "西班牙",
+                 "parent_id": 37
+             },
+             {
+                 "cid": 747,
+                 "name": "芬兰",
+                 "parent_id": 37
+             },
+             {
+                 "cid": 759,
+                 "name": "挪威",
+                 "parent_id": 37
+             },
+             {
+                 "cid": 771,
+                 "name": "瑞典",
+                 "parent_id": 37
+             },
+             {
+                 "cid": 783,
+                 "name": "波兰",
+                 "parent_id": 37
+             },
+             {
+                 "cid": 795,
+                 "name": "土耳其",
+                 "parent_id": 37
+             },
+             {
+                 "cid": 810,
+                 "name": "捷克",
+                 "parent_id": 37
+             },
+             {
+                 "cid": 9888,
+                 "name": "冰岛",
+                 "parent_id": 37
+             },
+             {
+                 "cid": 9897,
+                 "name": "希腊",
+                 "parent_id": 37
+             },
+             {
+                 "cid": 9900,
+                 "name": "巴黎",
+                 "parent_id": 37
+             },
+             {
+                 "cid": 9906,
+                 "name": "爱尔兰",
+                 "parent_id": 37
+             },
+             {
+                 "cid": 9909,
+                 "name": "爱沙尼亚",
+                 "parent_id": 37
+             },
+             {
+                 "cid": 9915,
+                 "name": "北爱尔兰",
+                 "parent_id": 37
+             },
+             {
+                 "cid": 9921,
+                 "name": "丹麦",
+                 "parent_id": 37
+             },
+             {
+                 "cid": 9924,
+                 "name": "俄罗斯",
+                 "parent_id": 37
+             },
+             {
+                 "cid": 9930,
+                 "name": "法属留尼汪",
+                 "parent_id": 37
+             },
+             {
+                 "cid": 9933,
+                 "name": "梵蒂冈",
+                 "parent_id": 37
+             },
+             {
+                 "cid": 9936,
+                 "name": "斐济",
+                 "parent_id": 37
+             },
+             {
+                 "cid": 9948,
+                 "name": "列支敦士登",
+                 "parent_id": 37
+             },
+             {
+                 "cid": 9957,
+                 "name": "摩纳哥",
+                 "parent_id": 37
+             },
+             {
+                 "cid": 9960,
+                 "name": "葡萄牙",
+                 "parent_id": 37
+             },
+             {
+                 "cid": 9966,
+                 "name": "圣卢西亚岛",
+                 "parent_id": 37
+             },
+             {
+                 "cid": 9969,
+                 "name": "斯洛伐克",
+                 "parent_id": 37
+             },
+             {
+                 "cid": 9972,
+                 "name": "苏格兰",
+                 "parent_id": 37
+             },
+             {
+                 "cid": 9975,
+                 "name": "威尔士",
+                 "parent_id": 37
+             }
+         ]
+     },
+     {
+         "cid": 114,
+         "name": "澳洲",
+         "children": [{
+                 "cid": 243,
+                 "name": "悉尼",
+                 "parent_id": 114
+             },
+             {
+                 "cid": 246,
+                 "name": "黄金海岸 ",
+                 "parent_id": 114
+             },
+             {
+                 "cid": 249,
+                 "name": "大堡礁",
+                 "parent_id": 114
+             },
+             {
+                 "cid": 252,
+                 "name": "墨尔本",
+                 "parent_id": 114
+             },
+             {
+                 "cid": 255,
+                 "name": "凯恩斯",
+                 "parent_id": 114
+             },
+             {
+                 "cid": 687,
+                 "name": "澳大利亚",
+                 "parent_id": 114
+             },
+             {
+                 "cid": 870,
+                 "name": "堪培拉",
+                 "parent_id": 114
+             },
+             {
+                 "cid": 897,
+                 "name": "霍巴特",
+                 "parent_id": 114
+             },
+             {
+                 "cid": 900,
+                 "name": "阿德莱德",
+                 "parent_id": 114
+             },
+             {
+                 "cid": 921,
+                 "name": "乌鲁鲁",
+                 "parent_id": 114
+             },
+             {
+                 "cid": 924,
+                 "name": "珀斯",
+                 "parent_id": 114
+             }
+         ]
+     },
+     {
+         "cid": 858,
+         "name": "新西兰",
+         "children": [{
+                 "cid": 219,
+                 "name": "新西兰南岛",
+                 "parent_id": 858
+             },
+             {
+                 "cid": 222,
+                 "name": "新西兰北岛",
+                 "parent_id": 858
+             },
+             {
+                 "cid": 225,
+                 "name": "新西兰南北岛",
+                 "parent_id": 858
+             },
+             {
+                 "cid": 228,
+                 "name": "皇后镇",
+                 "parent_id": 858
+             },
+             {
+                 "cid": 231,
+                 "name": "福克斯冰川",
+                 "parent_id": 858
+             },
+             {
+                 "cid": 237,
+                 "name": "基督城",
+                 "parent_id": 858
+             },
+             {
+                 "cid": 240,
+                 "name": "奥克兰",
+                 "parent_id": 858
+             },
+             {
+                 "cid": 861,
+                 "name": "惠灵顿",
+                 "parent_id": 858
+             },
+             {
+                 "cid": 885,
+                 "name": "爱歌顿农庄",
+                 "parent_id": 858
+             },
+             {
+                 "cid": 7914,
+                 "name": "蒂阿瑙",
+                 "parent_id": 858
+             }
+         ]
+     },
+     {
+         "cid": 111,
+         "name": "亚洲",
+         "children": [{
+                 "cid": 171,
+                 "name": "泰国",
+                 "parent_id": 111
+             },
+             {
+                 "cid": 192,
+                 "name": "普吉岛",
+                 "parent_id": 111
+             },
+             {
+                 "cid": 711,
+                 "name": "日本",
+                 "parent_id": 111
+             },
+             {
+                 "cid": 8493,
+                 "name": "中国",
+                 "parent_id": 111
+             },
+             {
+                 "cid": 9945,
+                 "name": "韩国",
+                 "parent_id": 111
+             }
+         ]
+     },
+     {
+         "cid": 948,
+         "name": "邮轮",
+         "children": [{
+                 "cid": 996,
+                 "name": "邮轮攻略",
+                 "parent_id": 948
+             },
+             {
+                 "cid": 999,
+                 "name": "邮轮旅游资讯",
+                 "parent_id": 948
+             }
+         ]
+     },
+     {
+         "cid": 978,
+         "name": "其他",
+         "children": [{
+                 "cid": 23,
+                 "name": "结伴同游",
+                 "parent_id": 978
+             },
+             {
+                 "cid": 945,
+                 "name": "旅游签证",
+                 "parent_id": 978
+             },
+             {
+                 "cid": 951,
+                 "name": "途风小编原创",
+                 "parent_id": 978
+             },
+             {
+                 "cid": 954,
+                 "name": "旅游小文章",
+                 "parent_id": 978
+             },
+             {
+                 "cid": 957,
+                 "name": "旅游胜地盘点",
+                 "parent_id": 978
+             },
+             {
+                 "cid": 963,
+                 "name": "途风独创旅游",
+                 "parent_id": 978
+             },
+             {
+                 "cid": 9918,
+                 "name": "伯利兹",
+                 "parent_id": 978
+             },
+             {
+                 "cid": 9954,
+                 "name": "摩洛哥",
+                 "parent_id": 978
+             },
+             {
+                 "cid": 9963,
+                 "name": "萨尔瓦多",
+                 "parent_id": 978
+             }
+         ]
+     }
+ ]

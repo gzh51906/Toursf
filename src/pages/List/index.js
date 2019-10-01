@@ -81,6 +81,11 @@ class List extends Component {
     clickTop() {
         this._container.scrollTop = 0
     }
+    /* 返回上一级 */
+    gotoback() {
+        this.props.history.goBack()
+    }
+
 
     render() {
         /* 隐藏菜单栏 */
@@ -92,8 +97,9 @@ class List extends Component {
             <div id="list">
                 <header className="header">
                     <div className="search">
-                        <Icon type="left" className="goback" />
-                        <div className="search-btn"><Icon type="zoom-in" />
+                        <Icon type="left" className="goback" onClick={this.gotoback.bind(this)} />
+                        <div className="search-btn">
+                            <Icon type="zoom-in" />
                             <span>途风精品</span>
                         </div>
                         <Icon type="menu-unfold" className="type" />

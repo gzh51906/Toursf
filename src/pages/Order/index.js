@@ -13,19 +13,19 @@ class Order extends Component {
         this.state = {
             data: [{
                 text: "全部订单",
-                src: "../../images/01D.jpg",
+                src: "./images/01D.jpg",
             }, {
                 text: "待付款",
-                src: "../../images/03D.png",
+                src: "./images/03D.png",
             }, {
                 text: "未出行",
-                src: "../../images/01D.jpg",
+                src: "./images/01D.jpg",
             }, {
                 text: "待评价",
-                src: "../../images/04D.jpg",
+                src: "./images/04D.jpg",
             }, {
                 text: "退款",
-                src: "../../images/01D.jpg",
+                src: "./images/01D.jpg",
             }]
         }
     }

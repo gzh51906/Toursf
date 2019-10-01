@@ -13,13 +13,19 @@ class Cart extends Component {
     }
 
     componentDidMount() {
+
+
+        if (localStorage.getItem('token') === null) {
+            // console.log(666);
+            this.props.history.push('/customer')
+        }
         this.getTotaprice()
     }
 
-    componentDidUpdate() {
-        // console.log("更新:", this.props.goodslist)
+    // componentDidUpdate() {
+    //     console.log("更新:", this.props.goodslist)
 
-    }
+    // }
 
     /* 计算总价 */
     getTotaprice() {

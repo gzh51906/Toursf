@@ -16,7 +16,7 @@ class Search extends Component {
     }
     async componentDidMount() {
         let { data } = await Api.get("/search", {})
-        console.log(data)
+        // console.log(data)
         this.setState({
             td: data
         })

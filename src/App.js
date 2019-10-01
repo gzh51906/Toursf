@@ -2,7 +2,6 @@ import React, { Component } from "react"
 
 /* 路由 */
 import { Route, Redirect, Switch, withRouter } from "react-router-dom"
-
 /* UI框架 */
 import { Menu } from 'antd';
 
@@ -25,6 +24,8 @@ import Goods from "./pages/Goods"
 import Customer from "./pages/Customer"
 import DestMore from "./pages/DestMore"
 import SearchPage from './pages/SearchPage'
+import Setting from './pages/Setting'
+
 
 import Search from "./pages/Search"
 import List from "./pages/List"
@@ -52,6 +53,7 @@ class App extends Component {
     componentDidMount() {
         // console.log(this.props)
     }
+
     render() {
         return (
             <>
@@ -68,6 +70,7 @@ class App extends Component {
 
                         <Route path="/destmore" component={DestMore} />
 
+                        <Route path="/setting" component={Setting}/>
                         {/* 动态路由 */}
                         <Route path="/goods/:id" component={Goods} />
 

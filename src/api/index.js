@@ -1,7 +1,8 @@
 import axios from "axios"
 
 const toursf = axios.create({
-    baseURL: "http://139.9.138.168:8888"
+    // baseURL: "http://52.78.186.217:8811"//修改、
+    baseURL: "http://119.3.166.163:8888"
 })
 
 let get = async (item, params) => {

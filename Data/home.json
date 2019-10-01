@@ -1,0 +1,100 @@
+ {
+     "banner": [{
+             "id": 306,
+             "name": "夏黄石尾单",
+             "type": "page",
+             "url": "/item/brick/162",
+             "picture": "https://cdn.tff.bz/f1/6f/53/20190902051500758816219.jpg",
+             "weight": 0
+         },
+         {
+             "id": 336,
+             "name": "Alaska极光8折",
+             "type": "page",
+             "url": "/item/brick/180",
+             "picture": "https://cdn.tff.bz/f2/67/1c/1080809-模板MOBAN.jpg",
+             "weight": 1
+         },
+         {
+             "id": 330,
+             "name": "欧洲新品-¥2000",
+             "type": "page",
+             "url": "/item/brick/174",
+             "picture": "https://cdn.tff.bz/f1/97/9b/1080-809.jpg",
+             "weight": 2
+         },
+         {
+             "id": 318,
+             "name": "美东买一赠一",
+             "type": "page",
+             "url": "/item/brick/171",
+             "picture": "https://cdn.tff.bz/f1/b6/9b/1080809-模板.jpg",
+             "weight": 3
+         },
+         {
+             "id": 312,
+             "name": "途风精品小团 . 美西精选",
+             "type": "page",
+             "url": "/item/brick/168",
+             "picture": "https://cdn.tff.bz/f1/89/c9/2019美西精品1080809.jpg",
+             "weight": 4
+         },
+         {
+             "id": 225,
+             "name": "从南到北 \"非\"去不可",
+             "type": "page",
+             "url": "/item/brick/102",
+             "picture": "https://cdn.tff.bz/f2/3f/75/非洲2019年1080-809.jpg",
+             "weight": 5
+         }
+     ],
+     "hot_destination": [{
+             "id": 24,
+             "title": "纽约",
+             "sort": 1,
+             "image": "http://cdn.tff.bz/f1/88/d1/20171225072550041698513.jpg"
+         },
+         {
+             "id": 21,
+             "title": "加拿大赏枫",
+             "sort": 2,
+             "image": "https://cdn.tff.bz/f2/26/f5/shutterstock_1350766547.jpg"
+         },
+         {
+             "id": 15,
+             "title": "班芙公园",
+             "sort": 3,
+             "image": "http://cdn.tff.bz/f2/e3/bc/1422994934641.png"
+         },
+         {
+             "id": 30,
+             "title": "新西兰",
+             "sort": 3,
+             "image": "http://cdn.tff.bz/f1/1e/3d/shutterstock_98530712.jpg"
+         },
+         {
+             "id": 36,
+             "title": "黄石",
+             "sort": 3,
+             "image": "http://cdn.tff.bz/f1/fa/4a/72db4170ef9561f283a2cb.jpg"
+         },
+         {
+             "id": 27,
+             "title": "东欧四国",
+             "sort": 4,
+             "image": "http://cdn.tff.bz/f2/03/79/timg.jpg"
+         },
+         {
+             "id": 12,
+             "title": "夏威夷",
+             "sort": 8,
+             "image": "http://cdn.tff.bz/f1/7b/98/3.jpg"
+         },
+         {
+             "id": 33,
+             "title": "澳大利亚",
+             "sort": 10,
+             "image": "http://cdn.tff.bz/f1/b2/b7/shutterstock_141480565.jpg"
+         }
+     ]
+ }

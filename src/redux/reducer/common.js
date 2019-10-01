@@ -2,7 +2,8 @@ let initState = {
     userInfo: {},
     token: "",
     showMenu: true,
-    goodsid: ""
+    goodsid: "",
+    // islogin:false,
 }
 
 function reducer(state = initState, action) {
@@ -23,7 +24,8 @@ function reducer(state = initState, action) {
         case "show_menu":
             return {
                 ...state,
-                showMenu: true
+                showMenu: true,
+                
             }
         case "hide_menu":
             return {

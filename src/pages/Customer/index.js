@@ -6,7 +6,7 @@ import './customer.css'
 class customer extends Component {
 
     login = () => {
-        console.log(666);
+        // console.log(666);
 
         this.props.history.push('/login')
     }

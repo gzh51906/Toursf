@@ -53,7 +53,7 @@ class Dest extends Component {
                         zIndex: 10
 
                     }} onClick={this.gotoback.bind(this, '/searchpage')} />
-                    <img src="//cdn.tff.bz/f2/59/5f/美国2.jpg?imageView2/1/w/1125/h/1200/q/85/format/jpg" alt="" />
+                    <img src="https://cdn.tff.bz/f2/59/5f/%E7%BE%8E%E5%9B%BD2.jpg?imageView2/1/w/1125/h/1200/q/85/format/jpg" alt="" />
                     <div className='dest_t'>
                         <div style={
                             {
@@ -87,27 +87,27 @@ class Dest extends Component {
                         <div className='Dest_nav1'>
                             <div className='de'>
                                 <div onClick={this.gotoback.bind(this, '/list')}>
-                                    <img src="../../images/Dest01.png" alt="" />
+                                    <img src="./images/Dest01.png" alt="" />
                                     <p>精品游</p>
                                 </div>
                                 <div>
-                                    <img src="../../images/Dest02.png" alt="" />
+                                    <img src="./images/Dest02.png" alt="" />
                                     <p>多日游</p>
                                 </div>
                                 <div>
-                                    <img src="../../images/Dest03.png" alt="" />
+                                    <img src="./images/Dest03.png" alt="" />
                                     <p>一日游</p>
                                 </div>
                                 <div>
-                                    <img src="../../images/Dest04.png" alt="" />
+                                    <img src="./images/Dest04.png" alt="" />
                                     <p>票务</p>
                                 </div>
                                 <div>
-                                    <img src="../../images/Dest05.png" alt="" />
+                                    <img src="./images/Dest05.png" alt="" />
                                     <p>邮轮游</p>
                                 </div>
                                 <div>
-                                    <img src="../../images/Dest06.png" alt="" />
+                                    <img src="./images/Dest06.png" alt="" />
                                     <p>制定旅行</p>
                                 </div>
                             </div>
@@ -117,19 +117,19 @@ class Dest extends Component {
                         <h2>热门推荐</h2>
                         <div className='Dest_nav2'>
                             <div onClick={this.gotoback.bind(this, '/list')}>
-                                <img src="//cdn.tff.bz/f2/91/20/黄石国家公园-标识.jpg?imageView2/1/w/324/h/182/q/80/format/jpg" alt="" />
+                                <img src="https://cdn.tff.bz/f2/91/20/%E9%BB%84%E7%9F%B3%E5%9B%BD%E5%AE%B6%E5%85%AC%E5%9B%AD-%E6%A0%87%E8%AF%86.jpg?imageView2/1/w/324/h/182/q/80/format/jpg" alt="" />
                                 <span>黄石公园大美天地</span>
                             </div>
                             <div>
-                                <img src="//cdn.tff.bz/f1/05/66/grant-village-lake-house-restaurant-02-800x500.jpg?imageView2/1/w/324/h/182/q/80/format/jpg" alt="" />
+                                <img src="https://cdn.tff.bz/f1/05/66/grant-village-lake-house-restaurant-02-800x500.jpg?imageView2/1/w/324/h/182/q/80/format/jpg" alt="" />
                                 <span>稀缺黄石小木屋</span>
                             </div>
                             <div>
-                                <img src="//cdn.tff.bz/f1/05/66/grant-village-lake-house-restaurant-02-800x500.jpg?imageView2/1/w/324/h/182/q/80/format/jpg" alt="" />
+                                <img src="https://cdn.tff.bz/f1/05/66/grant-village-lake-house-restaurant-02-800x500.jpg?imageView2/1/w/324/h/182/q/80/format/jpg" alt="" />
                                 <span>网红大棱镜俯视点</span>
                             </div>
                             <div>
-                                <img src="//cdn.tff.bz/f1/c3/3f/西拇指.jpg?imageView2/1/w/324/h/182/q/80/format/jpg" alt="" />
+                                <img src="https://cdn.tff.bz/f1/c3/3f/%E8%A5%BF%E6%8B%87%E6%8C%87.jpg?imageView2/1/w/324/h/182/q/80/format/jpg" alt="" />
                                 <span>西雅图+黄石</span>
                             </div>
                         </div>
@@ -143,25 +143,25 @@ class Dest extends Component {
                         </div>
                         <div className='Dest_nav3'>
                             <div onClick={this.gotoback.bind(this, '/list')}>
-                                <img src="//toursforfun.tff.bz/images/TourCity201604191461080699_5716527bc3847.jpg?imageView2/1/w/154/h/188/q/80/format/jpg" alt="" />
+                                <img src="https://toursforfun.tff.bz/images/TourCity201604191461080699_5716527bc3847.jpg?imageView2/1/w/154/h/188/q/80/format/jpg" alt="" />
                                 <span>羚羊峡谷</span>
                             </div>
                             <div>
-                                <img src="//toursforfun.tff.bz/images/TourCity201406091402338510_5395fcce9069a.jpg?imageView2/1/w/154/h/188/q/80/format/jpg" alt="" />
+                                <img src="https://toursforfun.tff.bz/images/TourCity201406091402338510_5395fcce9069a.jpg?imageView2/1/w/154/h/188/q/80/format/jpg" alt="" />
                                 <span>无畏号航舰博物馆</span>
                             </div>
                             <div>
-                                <img src="//toursforfun.tff.bz/images/lincoln_memorial_washington_dc.jpg?imageView2/1/w/154/h/188/q/80/format/jpg" alt="" />
+                                <img src="https://toursforfun.tff.bz/images/lincoln_memorial_washington_dc.jpg?imageView2/1/w/154/h/188/q/80/format/jpg" alt="" />
                                 <span>林肯纪念堂</span>
                             </div>
                             <div style={{ margin: 0 }}>
-                                <img src="//toursforfun.tff.bz/images/liberty_bell_philadelphia.jpg?imageView2/1/w/154/h/188/q/80/format/jpg" alt="" />
+                                <img src="https://toursforfun.tff.bz/images/liberty_bell_philadelphia.jpg?imageView2/1/w/154/h/188/q/80/format/jpg" alt="" />
                                 <span>自由钟</span>
                             </div>
                         </div>
                     </div>
                     <div className='Dest_main4'>
-                        <img src="//cdn.tff.bz/f2/windtour/e0/fb/banner-%E4%BC%98%E6%83%A0%E4%B8%93%E5%8C%BA.jpg?imageView2/1/w/1332/h/634/q/90/format/jpg" alt="" onClick={this.list} />
+                        <img src="https://cdn.tff.bz/f2/windtour/e0/fb/banner-%E4%BC%98%E6%83%A0%E4%B8%93%E5%8C%BA.jpg?imageView2/1/w/1332/h/634/q/90/format/jpg" alt="" onClick={this.list} />
                     </div>
                     <div className='Dest_main5'>
                         <h2>跟团游销量榜</h2>

@@ -16,8 +16,8 @@ const sagaMiddleware = createSagaMiddleware();
 // 2.将 中间件 连接至 Store
 let enhancer = applyMiddleware(sagaMiddleware)
 
-enhancer = compose(enhancer, composeWithDevTools())
-const store = createStore(allReducer, enhancer)
+// enhancer = compose(enhancer, composeWithDevTools())
+const store = createStore(allReducer, composeWithDevTools(enhancer));
 
 // const store = createStore(allReducer, composeWithDevTools(enhancer))
 
